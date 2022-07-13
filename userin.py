@@ -1,6 +1,6 @@
-P = input(float("Design Pressure : "))
-D = input(float("Inside Diameter : "))
-S = input(float("Material Stress : "))
-E = input(float("Joint Efficiency : "))
-CA = input(float("Corrosion Allowance : "))
+P = float(input("Design Pressure : "))
+D = float(input("Inside Diameter : "))
+S = float(input("Material Stress : "))
+E = float(input("Joint Efficiency : "))
+CA = float(input("Corrosion Allowance : "))
 R = D/2
