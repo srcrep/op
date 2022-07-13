@@ -1,3 +1,4 @@
+T = float(input("Nominal Thickness : "))
 P = float(input("Design Pressure : "))
 D = float(input("Inside Diameter : "))
 S = float(input("Material Stress : "))
