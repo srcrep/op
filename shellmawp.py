@@ -1,7 +1,12 @@
-from input import *
+from userin import *
 from shell import t
 
 t = shell.t
+P = userin.P
+R = userin.R
+S = userin.S
+E = userin.E
+CA = userin.CA
 
 
 calc2 = "Max. Allowable Working Pressure at given Thickness, corroded [MAWP]"
