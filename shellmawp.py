@@ -1,5 +1,10 @@
+import userin
+import shell
 from userin import *
 from shell import t
+
+shell = shell
+userin = userin
 
 t = shell.t
 P = userin.P
