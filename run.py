@@ -1,8 +1,5 @@
 import userin
 import shell
-import shellmawp
-from shell import *
-from shellmawp import *
 
 print(name)
 print()
