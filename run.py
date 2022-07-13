@@ -1,5 +1,4 @@
-import userin
-import shell
+from shell import *
 
 print(name)
 print()
