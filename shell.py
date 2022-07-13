@@ -1,4 +1,7 @@
+import userin
 from userin import *
+
+userin = userin
 
 P = userin.P
 R = userin.R
