@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<p>
-Table Of Contents
-Cover Sheet............................................................................................................................................................... 2 Title Page................................................................................................................................................................. 3 Warnings and Errors :....................................................................................................................................... 4 Input Echo :............................................................................................................................................................. 5 XY Coordinate Calculations :.................................................................................................................... 14 Internal Pressure Calculations :........................................................................................................... 15 External Pressure Calculations :........................................................................................................... 19 Element and Detail Weights :.................................................................................................................... 22 Nozzle Flange MAWP :........................................................................................................................................ 25 Wind Load Calculation :................................................................................................................................ 26 Earthquake Load Calculation :.................................................................................................................. 29 Center of Gravity Calculation :............................................................................................................. 31 Lifting Lug Calcs : Left Side.................................................................................................................. 33 Lifting Lug Calcs : Right Side................................................................................................................ 41 Horizontal Vessel Analysis (Ope.) :.................................................................................................... 49 Horizontal Vessel Analysis (Test) :.................................................................................................... 63 Nozzle Calcs. : F1............................................................................................................................................ 76 Nozzle Calcs. : Y............................................................................................................................................... 87 Nozzle Calcs. : L4............................................................................................................................................ 91 Nozzle Calcs. : P............................................................................................................................................... 95 Nozzle Calcs. : V............................................................................................................................................... 99 Nozzle Calcs. : A............................................................................................................................................. 106 Nozzle Calcs. : M............................................................................................................................................. 117 Nozzle Calcs. : R1.......................................................................................................................................... 126 Nozzle Calcs. : W1.......................................................................................................................................... 137 Nozzle Calcs. : B............................................................................................................................................. 144 Nozzle Calcs. : L2.......................................................................................................................................... 155 Nozzle Calcs. : L1.......................................................................................................................................... 160 Nozzle Calcs. : T............................................................................................................................................. 165 Nozzle Schedule :............................................................................................................................................. 170 Nozzle Summary :............................................................................................................................................... 172 MDMT Summary :.................................................................................................................................................... 174 Vessel Design Summary :.............................................................................................................................. 176 
-Cover Page 
-DESIGN CALCULATION In Accordance with ASME Section VIII Division 1 
-ASME Code Version : 2013 Analysis Performed by : KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO. Job File : E:\ BASF TERRIER \D4470.PVDB Date of Analysis : Apr 4,2014 
-PV Elite 2014, January 2014 
 
-Title Page 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Warnings and Errors : Step: 0   1:43p  Apr 4,2014 
-Class From To : Basic Element Checks. ========================================================================== 
-Class From To: Check of Additional Element Data ========================================================================== 
-There were no geometry errors or warnings. 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
 
 PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
@@ -34,86 +16,7 @@ Seismic Design Code ASCE 7-05 Importance Factor 1.250 Table Value Fa 1.000 Table
 Design Nozzle for Des. Press. + St. Head Y Consider MAP New and Cold in Noz. Design N Consider External Loads for Nozzle Des. Y Use ASME VIII-1 Appendix 1-9 N 
 Material Database Year Current w/Addenda or Code Year 
 Configuration Directives:
- Do not use Nozzle MDMT Interpretation VIII-1 01-37 No Use Table G instead of exact equation for "A" Yes Shell Head Joints are Tapered Yes 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Compute "K" in corroded condition Yes Use Code Case 2286 No Use the MAWP to compute the MDMT Yes Using Metric Material Databases, ASME II D No 
-Complete Listing of Vessel Elements and Details:
- Element From Node 10 Element To Node 20 Element Type Elliptical Description left head Distance "FROM" to "TO" 0.08202 ft Inside Diameter 60.000 in Element Thickness 0.8268 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.9449 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L 
-Allowable Stress, Ambient 16700. psi Allowable Stress, Operating  16700. psi Allowable Stress, Hydrotest  22500. psi Material Density 0.2900 lb/in^3 P Number Thickness 0.0000 in Yield Stress, Operating  20248. psi External Pressure Chart Name HA-3 UNS Number S30403 Product Form Plate 
-    Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 Elliptical Head Factor 2.0 
-Element From Node 10 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 10 Detail Type Insulation Detail ID Ins: 20 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Dist. from "FROM" Node / Offset dist -1.2500 ft Height/Length of Insulation 1.3320 ft Thickness of Insulation 2.0000 in Density 7.4906 lb/ft^3 
---------------------------------------------------------------------
-Element From Node 20 Element To Node 30 Element Type Cylinder Description shell Distance "FROM" to "TO" 12.336 ft Inside Diameter 60.000 in Element Thickness 0.8661 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.0000 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L     Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 
-Element From Node 20 Detail Type Saddle Detail ID L Sdl Dist. from "FROM" Node / Offset dist 1.7500 ft Width of Saddle 7.2500 in Height of Saddle at Bottom 43.000 in Saddle Contact Angle 120.0 Height of Composite Ring Stiffener 0.0000 in Width of Wear Plate 11.811 in Thickness of Wear Plate 0.4724 in Contact Angle, Wear Plate (degrees) 132.0 
-Element From Node 20 Detail Type Saddle Detail ID R Sdl Dist. from "FROM" Node / Offset dist 10.750 ft Width of Saddle 7.2500 in Height of Saddle at Bottom 43.000 in Saddle Contact Angle 120.0 Height of Composite Ring Stiffener 0.0000 in 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Width of Wear Plate 11.811 in Thickness of Wear Plate 0.4724 in Contact Angle, Wear Plate (degrees) 132.0 
-Element From Node 20 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 20 Detail Type Insulation Detail ID Ins: 20 Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Insulation 12.336 ft Thickness of Insulation 2.0000 in Density 7.4906 lb/ft^3 
-Element From Node 20 Detail Type Nozzle Detail ID F1 Dist. from "FROM" Node / Offset dist 0.7500 ft Nozzle Diameter 4.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 90.749 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID Y Dist. from "FROM" Node / Offset dist 1.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Detail Type Nozzle Detail ID L4 Dist. from "FROM" Node / Offset dist 2.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID P Dist. from "FROM" Node / Offset dist 3.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID V Dist. from "FROM" Node / Offset dist 4.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID A Dist. from "FROM" Node / Offset dist 12.000 ft Nozzle Diameter 3.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 48.626 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID M Dist. from "FROM" Node / Offset dist 8.5000 ft Nozzle Diameter 24.0 in. Nozzle Schedule None Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 247.58 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-240 304L 
-Element From Node 20 Detail Type Nozzle Detail ID R1 Dist. from "FROM" Node / Offset dist 5.7500 ft Nozzle Diameter 4.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 90.749 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID W1 Dist. from "FROM" Node / Offset dist 4.0000 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.206 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Detail ID B Dist. from "FROM" Node / Offset dist 12.000 ft Nozzle Diameter 3.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 27.332 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
---------------------------------------------------------------------
-Element From Node 30 Element To Node 40 Element Type Elliptical Description right head Distance "FROM" to "TO" 0.08202 ft Inside Diameter 60.000 in Element Thickness 0.8268 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.9449 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L     Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 Elliptical Head Factor 2.0 
-Element From Node 30 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 30 Detail Type Insulation Detail ID Ins: 20 Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Insulation 1.3320 ft Thickness of Insulation 2.0000 in 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Density 7.4906 lb/ft^3 
-Element From Node 30 Detail Type Nozzle Detail ID L2 Dist. from "FROM" Node / Offset dist 24.000 in Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.767 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 30 Detail Type Nozzle Detail ID L1 Dist. from "FROM" Node / Offset dist 24.000 in Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.767 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 30 Detail Type Nozzle Detail ID T Dist. from "FROM" Node / Offset dist 0.10000 in Nozzle Diameter 1.5 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 11.682 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
-
-
-XY Coordinate Calculations :  Step:  2   1:43p  Apr 4,2014 
-XY Coordinate Calculations
- | | | | | | From| To | X (Horiz.)| Y (Vert.) |DX (Horiz.)| DY (Vert.) | | |     ft |     ft |    ft |     ft | --------------------------------------------------------------
-left head|  0.082021 |  ... |  0.082021 |  ... |  
-shell|  12.4180 |  ... |  12.3360 |  ... |  
- right head|   12.5000 |  ... |  0.082021 |  ... |  
-
-
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Internal Pressure Calculations :   Step:  3   1:43p  Apr 4,2014 
-Element Thickness, Pressure, Diameter and Allowable Stress :
- | | Int. Press | Nominal | Total Corr| Element | Allowable | From| To | + Liq. Hd | Thickness | Allowance | Diameter | Stress(SE)| | | psig | in | in | in | psi | ---------------------------------------------------------------------------left head| 363.760 | 0.94488 | ... | 60.0000 | 14195.0 | shell| 363.760 | ... | ... | 60.0000 | 14195.0 |  right head|  363.760 | 0.94488 | ... | 60.0000 | 14195.0 | 
-
-Element Required Thickness and MAWP :
- | | Design |  M.A.W.P. | M.A.P. | Minimum | Required | From| To | Pressure | Corroded | New & Cold | Thickness | Thickness | | | psig | psig | psig | in | in | ----------------------------------------------------------------------------
-left head|  363.000 |  389.366 |  390.126 |  0.82677 |  0.77075 |  
-shell|  363.000 |  402.091 |  402.851 |  0.86614 |  0.78078 |  
- right head|   363.000 |  389.366 |  390.126 |  0.82677 |  0.77075 |  
-Minimum  389.366 390.125  
-
-MAWP: 389.366 psig, limited by: right head. 
+ Do not use Nozzle MDMT Interpretation VIII-1 01-37 No Use Table G instead of exact equation for "A" Yes Shell Head Joints are Tapered Yes
 
 Internal Pressure Calculation Results : 
 ASME Code, Section VIII, Division 1, 2013 
