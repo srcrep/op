@@ -1,271 +1,534 @@
-Table of Contents 
-Cover Sheet............................................................................................................................................................... 2 Title Page................................................................................................................................................................. 3 Warnings and Errors :....................................................................................................................................... 4 Input Echo :............................................................................................................................................................. 5 XY Coordinate Calculations :.................................................................................................................... 14 Internal Pressure Calculations :........................................................................................................... 15 External Pressure Calculations :........................................................................................................... 19 Element and Detail Weights :.................................................................................................................... 22 Nozzle Flange MAWP :........................................................................................................................................ 25 Wind Load Calculation :................................................................................................................................ 26 Earthquake Load Calculation :.................................................................................................................. 29 Center of Gravity Calculation :............................................................................................................. 31 Lifting Lug Calcs : Left Side.................................................................................................................. 33 Lifting Lug Calcs : Right Side................................................................................................................ 41 Horizontal Vessel Analysis (Ope.) :.................................................................................................... 49 Horizontal Vessel Analysis (Test) :.................................................................................................... 63 Nozzle Calcs. : F1............................................................................................................................................ 76 Nozzle Calcs. : Y............................................................................................................................................... 87 Nozzle Calcs. : L4............................................................................................................................................ 91 Nozzle Calcs. : P............................................................................................................................................... 95 Nozzle Calcs. : V............................................................................................................................................... 99 Nozzle Calcs. : A............................................................................................................................................. 106 Nozzle Calcs. : M............................................................................................................................................. 117 Nozzle Calcs. : R1.......................................................................................................................................... 126 Nozzle Calcs. : W1.......................................................................................................................................... 137 Nozzle Calcs. : B............................................................................................................................................. 144 Nozzle Calcs. : L2.......................................................................................................................................... 155 Nozzle Calcs. : L1.......................................................................................................................................... 160 Nozzle Calcs. : T............................................................................................................................................. 165 Nozzle Schedule :............................................................................................................................................. 170 Nozzle Summary :............................................................................................................................................... 172 MDMT Summary :.................................................................................................................................................... 174 Vessel Design Summary :.............................................................................................................................. 176 
-Cover Page 
-DESIGN CALCULATION In Accordance with ASME Section VIII Division 1 
-ASME Code Version : 2013 Analysis Performed by : KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO. Job File : E:\ BASF TERRIER \D4470.PVDB Date of Analysis : Apr 4,2014 
-PV Elite 2014, January 2014 
 
-Title Page 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Warnings and Errors : Step: 0   1:43p  Apr 4,2014 
-Class From To : Basic Element Checks. ========================================================================== 
-Class From To: Check of Additional Element Data ========================================================================== 
-There were no geometry errors or warnings. 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
+Design Internal Pressure (for Hydrotest)  363.00 psig
+Design Internal Temperature 248 F
+Type of Hydrotest UG-99(b)
+Hydrotest Position Horizontal Projection of Nozzle from Vessel Top 31.000 in
+Projection of Nozzle from Vessel Bottom 7.6000 in
+Minimum Design Metal Temperature 0 F Type of Construction Welded Special Service None
+Degree of Radiography RT-3
+Miscellaneous Weight Percent 0.0
+Use Higher Longitudinal Stresses (Flag) Y
+Select t for Internal Pressure (Flag) Y
+Select t for External Pressure (Flag) Y
+Select t for Axial Stress (Flag) N
+Select Location for Stiff. Rings (Flag)  Y
+Consider Vortex Shedding N
+Perform a Corroded Hydrotest N
+Is this a Heat Exchanger No
+User Defined Hydro. Press. (Used if > 0) 0.0000 psig
+User defined MAWP 0.0000 psig User defined MAPnc 0.0000 psig 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-PV Elite Vessel Analysis Program: Input Data
- Design Internal Pressure (for Hydrotest)  363.00 psig Design Internal Temperature 248 F Type of Hydrotest UG-99(b) Hydrotest Position Horizontal Projection of Nozzle from Vessel Top 31.000 in Projection of Nozzle from Vessel Bottom 7.6000 in Minimum Design Metal Temperature 0 F Type of Construction Welded Special Service None Degree of Radiography RT-3 Miscellaneous Weight Percent 0.0 Use Higher Longitudinal Stresses (Flag) Y Select t for Internal Pressure (Flag) Y Select t for External Pressure (Flag) Y Select t for Axial Stress (Flag) N Select Location for Stiff. Rings (Flag)  Y Consider Vortex Shedding N Perform a Corroded Hydrotest N Is this a Heat Exchanger No User Defined Hydro. Press. (Used if > 0) 0.0000 psig User defined MAWP 0.0000 psig User defined MAPnc 0.0000 psig 
-Load Case 1 NP+EW+WI+FW+BW Load Case 2 NP+EW+EE+FS+BS Load Case 3 NP+OW+WI+FW+BW Load Case 4 NP+OW+EQ+FS+BS Load Case 5 NP+HW+HI Load Case 6 NP+HW+HE Load Case 7 IP+OW+WI+FW+BW Load Case 8 IP+OW+EQ+FS+BS Load Case 9 EP+OW+WI+FW+BW Load Case 10 EP+OW+EQ+FS+BS Load Case 11 HP+HW+HI Load Case 12 HP+HW+HE Load Case 13 IP+WE+EW Load Case 14 IP+WF+CW Load Case 15 IP+VO+OW Load Case 16 IP+VE+EW Load Case 17 NP+VO+OW Load Case 18 FS+BS+IP+OW Load Case 19 FS+BS+EP+OW 
+Load Case 1 NP+EW+WI+FW+BW
+Load Case 2 NP+EW+EE+FS+BS
+Load Case 3 NP+OW+WI+FW+BW
+Load Case 4 NP+OW+EQ+FS+BS
+Load Case 5 NP+HW+HI
+Load Case 6 NP+HW+HE
+Load Case 7 IP+OW+WI+FW+BW
+Load Case 8 IP+OW+EQ+FS+BS
+Load Case 9 EP+OW+WI+FW+BW
+Load Case 10 EP+OW+EQ+FS+BS
+Load Case 11 HP+HW+HI
+Load Case 12 HP+HW+HE
+Load Case 13 IP+WE+EW
+Load Case 14 IP+WF+CW
+Load Case 15 IP+VO+OW
+Load Case 16 IP+VE+EW
+Load Case 17 NP+VO+OW
+Load Case 18 FS+BS+IP+OW
+Load Case 19 FS+BS+EP+OW 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Wind Design Code Basic Wind Speed Surface Roughness Category  Importance Factor Type of Surface Base Elevation  [V]  ASCE 7-05 140.00 mile/hr C: Open Terrain 1.15 Moderately Smooth 0.0000 ft  
+
+Wind Design Code ASCE 7-05
+Basic Wind Speed
+Surface Roughness Category
+Importance Factor
+Type of Surface
+Base Elevation
 Percent Wind for Hydrotest  0.0  
 
-Using User defined Wind Press. Vs Elev. N Height of Hill or Escarpment H or Hh 0.0000 ft Distance Upwind of Crest Lh 0.0000 ft Distance from Crest to the Vessel x 0.0000 ft Type of Terrain ( Hill, Escarpment )  Flat Damping Factor (Beta) for Wind (Ope) 0.0100 Damping Factor (Beta) for Wind (Empty) 0.0000 Damping Factor (Beta) for Wind (Filled) 0.0000 
-Seismic Design Code ASCE 7-05 Importance Factor 1.250 Table Value Fa 1.000 Table Value Fv 1.400 Short Period Acceleration value Ss 0.112 Long Period Acceleration Value Sl 0.052 Moment Reduction Factor Tau 1.000 Force Modification Factor R 3.000 Site Class D Component Elevation Ratio z/h 0.000 Amplification Factor Ap 0.000 Force Factor 0.000 Consider Vertical Acceleration No Minimum Acceleration Multiplier 0.000 User Value of Sds (used if > 0 ) 0.000 User Value of Sd1 (used if > 0 ) 0.000 
-Design Nozzle for Des. Press. + St. Head Y Consider MAP New and Cold in Noz. Design N Consider External Loads for Nozzle Des. Y Use ASME VIII-1 Appendix 1-9 N 
+Using User defined Wind Press. Vs Elev. N
+Height of Hill or Escarpment H or Hh 0.0000 ft
+Distance Upwind of Crest Lh 0.0000 ft
+Distance from Crest to the Vessel x 0.0000 ft
+Type of Terrain ( Hill, Escarpment )
+Flat Damping Factor (Beta) for Wind (Ope) 0.0100
+Damping Factor (Beta) for Wind (Empty) 0.0000
+Damping Factor (Beta) for Wind (Filled) 0.0000 
+
+Seismic Design Code ASCE 7-05
+Importance Factor 1.250
+Table Value Fa 1.000
+Table Value Fv 1.400
+Short Period Acceleration value Ss 0.112
+Long Period Acceleration Value Sl 0.052
+Moment Reduction Factor Tau 1.000
+Force Modification Factor R 3.000
+Site Class D
+Component Elevation Ratio z/h 0.000
+Amplification Factor Ap 0.000 
+Force Factor 0.000
+Consider Vertical Acceleration No Minimum Acceleration Multiplier 0.000
+User Value of Sds (used if > 0 ) 0.000
+User Value of Sd1 (used if > 0 ) 0.000 
+
+Design Nozzle for Des. Press. + St. Head Y
+Consider MAP New and Cold in Noz. Design N
+Consider External Loads for Nozzle Des. Y
+Use ASME VIII-1 Appendix 1-9 N 
 Material Database Year Current w/Addenda or Code Year 
+
 Configuration Directives:
- Do not use Nozzle MDMT Interpretation VIII-1 01-37 No Use Table G instead of exact equation for "A" Yes Shell Head Joints are Tapered Yes 
+Do not use Nozzle MDMT Interpretation VIII-1 01-37 No
+Use Table G instead of exact equation for "A" Yes
+Shell Head Joints are Tapered Yes 
+Compute "K" in corroded condition Yes
+Use Code Case 2286 No
+Use the MAWP to compute the MDMT Yes
+Using Metric Material Databases, ASME II D No 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Compute "K" in corroded condition Yes Use Code Case 2286 No Use the MAWP to compute the MDMT Yes Using Metric Material Databases, ASME II D No 
+# to be used with shell and heads
 Complete Listing of Vessel Elements and Details:
- Element From Node 10 Element To Node 20 Element Type Elliptical Description left head Distance "FROM" to "TO" 0.08202 ft Inside Diameter 60.000 in Element Thickness 0.8268 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.9449 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L 
-Allowable Stress, Ambient 16700. psi Allowable Stress, Operating  16700. psi Allowable Stress, Hydrotest  22500. psi Material Density 0.2900 lb/in^3 P Number Thickness 0.0000 in Yield Stress, Operating  20248. psi External Pressure Chart Name HA-3 UNS Number S30403 Product Form Plate 
-    Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 Elliptical Head Factor 2.0 
-Element From Node 10 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 10 Detail Type Insulation Detail ID Ins: 20 
 
+Element From Node 10
+Element To Node 20
+Element Type Elliptical
+Description left head
+Distance "FROM" to "TO" 0.08202 ft
+Inside Diameter 60.000 in
+Element Thickness 0.8268 in
+Internal Corrosion Allowance 0.0000 in
+Nominal Thickness 0.9449 in
+External Corrosion Allowance 0.0000 in
+Design Internal Pressure 363.00 psig
+Design Temperature Internal Pressure 248 F
+Design External Pressure 14.500 psig
+Design Temperature External Pressure 248 F
+Effective Diameter Multiplier 1.2
+Material Name SA-240 304L 
+Allowable Stress, Ambient 16700. psi
+Allowable Stress, Operating  16700. psi
+Allowable Stress, Hydrotest  22500. psi
+Material Density 0.2900 lb/in^3
+P Number Thickness 0.0000 in
+Yield Stress, Operating  20248. psi
+External Pressure
+Chart Name HA-3
+UNS Number S30403
+Product Form Plate 
+Efficiency
+Longitudinal Seam 0.85 Efficiency
+Circumferential Seam 0.85
+Elliptical Head Factor 2.0 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Dist. from "FROM" Node / Offset dist -1.2500 ft Height/Length of Insulation 1.3320 ft Thickness of Insulation 2.0000 in Density 7.4906 lb/ft^3 
---------------------------------------------------------------------
-Element From Node 20 Element To Node 30 Element Type Cylinder Description shell Distance "FROM" to "TO" 12.336 ft Inside Diameter 60.000 in Element Thickness 0.8661 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.0000 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L     Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 
-Element From Node 20 Detail Type Saddle Detail ID L Sdl Dist. from "FROM" Node / Offset dist 1.7500 ft Width of Saddle 7.2500 in Height of Saddle at Bottom 43.000 in Saddle Contact Angle 120.0 Height of Composite Ring Stiffener 0.0000 in Width of Wear Plate 11.811 in Thickness of Wear Plate 0.4724 in Contact Angle, Wear Plate (degrees) 132.0 
-Element From Node 20 Detail Type Saddle Detail ID R Sdl Dist. from "FROM" Node / Offset dist 10.750 ft Width of Saddle 7.2500 in Height of Saddle at Bottom 43.000 in Saddle Contact Angle 120.0 Height of Composite Ring Stiffener 0.0000 in 
+#example with saddle support
+Element From Node 20
+Detail Type Saddle Detail ID L
+Sdl Dist. from "FROM" Node / Offset dist 1.7500 ft
+Width of Saddle 7.2500 in
+Height of Saddle at Bottom 43.000 in
+Saddle Contact Angle 120.0
+Height of Composite Ring Stiffener 0.0000 in
+Width of Wear Plate 11.811 in
+Thickness of Wear Plate 0.4724 in
+Contact Angle, Wear Plate (degrees) 132.0 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Width of Wear Plate 11.811 in Thickness of Wear Plate 0.4724 in Contact Angle, Wear Plate (degrees) 132.0 
-Element From Node 20 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 20 Detail Type Insulation Detail ID Ins: 20 Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Insulation 12.336 ft Thickness of Insulation 2.0000 in Density 7.4906 lb/ft^3 
-Element From Node 20 Detail Type Nozzle Detail ID F1 Dist. from "FROM" Node / Offset dist 0.7500 ft Nozzle Diameter 4.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 90.749 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID Y Dist. from "FROM" Node / Offset dist 1.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 
+Element From Node 20 Detail
+Type Saddle
+Detail ID R Sdl
+Dist. from "FROM" Node / Offset dist 10.750 ft
+Width of Saddle 7.2500 in
+Height of Saddle at Bottom 43.000 in
+Saddle Contact Angle 120.0
+Height of Composite Ring Stiffener 0.0000 in 
+Width of Wear Plate 11.811 in
+Thickness of Wear Plate 0.4724 in
+Contact Angle, Wear Plate (degrees) 132.0 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Detail Type Nozzle Detail ID L4 Dist. from "FROM" Node / Offset dist 2.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID P Dist. from "FROM" Node / Offset dist 3.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID V Dist. from "FROM" Node / Offset dist 4.7500 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 21.060 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID A Dist. from "FROM" Node / Offset dist 12.000 ft Nozzle Diameter 3.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 
+Element From Node 20 Detail 
+Type Liquid Detail ID L
+Dist. from "FROM" Node / Offset dist 0.0000 ft
+Height/Length of Liquid 3.0000 ft
+Liquid Density  36.485 lb/ft^3 
+Element From Node 20
+Detail Type Insulation
+Detail ID Ins: 20
+Dist. from "FROM" Node / Offset dist 0.0000 ft
+Height/Length of Insulation 12.336 ft
+Thickness of Insulation 2.0000 in Density 7.4906 lb/ft^3 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 48.626 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID M Dist. from "FROM" Node / Offset dist 8.5000 ft Nozzle Diameter 24.0 in. Nozzle Schedule None Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 247.58 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-240 304L 
-Element From Node 20 Detail Type Nozzle Detail ID R1 Dist. from "FROM" Node / Offset dist 5.7500 ft Nozzle Diameter 4.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  Y Weight of Nozzle ( Used if > 0 ) 90.749 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle Detail ID W1 Dist. from "FROM" Node / Offset dist 4.0000 ft Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.206 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 20 Detail Type Nozzle 
+Element From Node 20
+Detail Type Nozzle
+Detail ID F1 Dist. from "FROM" Node / Offset dist 0.7500 ft
+Nozzle Diameter 4.0 in.
+Nozzle Schedule 80S
+Nozzle Class 300
+Layout Angle  0.0
+Blind Flange (Y/N)  Y
+Weight of Nozzle ( Used if > 0 ) 90.749 lbf
+Grade of Attached Flange GR 2.1
+Nozzle Matl SA-312 TP304L 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Detail ID B Dist. from "FROM" Node / Offset dist 12.000 ft Nozzle Diameter 3.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 27.332 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
---------------------------------------------------------------------
-Element From Node 30 Element To Node 40 Element Type Elliptical Description right head Distance "FROM" to "TO" 0.08202 ft Inside Diameter 60.000 in Element Thickness 0.8268 in Internal Corrosion Allowance 0.0000 in Nominal Thickness 0.9449 in External Corrosion Allowance 0.0000 in Design Internal Pressure 363.00 psig     Design Temperature Internal Pressure 248 F Design External Pressure 14.500 psig     Design Temperature External Pressure 248 F Effective Diameter Multiplier 1.2 Material Name SA-240 304L     Efficiency, Longitudinal Seam 0.85 Efficiency, Circumferential Seam 0.85 Elliptical Head Factor 2.0 
-Element From Node 30 Detail Type Liquid Detail ID L Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Liquid 3.0000 ft         Liquid Density  36.485 lb/ft^3 
-Element From Node 30 Detail Type Insulation Detail ID Ins: 20 Dist. from "FROM" Node / Offset dist 0.0000 ft Height/Length of Insulation 1.3320 ft Thickness of Insulation 2.0000 in 
+Element From Node 30
+Element To Node 40
+Element Type Elliptical
+Description right head
+Distance "FROM" to "TO" 0.08202 ft
+Inside Diameter 60.000 in
+Element Thickness 0.8268 in
+Internal Corrosion Allowance 0.0000 in
+Nominal Thickness 0.9449 in
+External Corrosion Allowance 0.0000 in
+Design Internal Pressure 363.00 psig
+Design Temperature Internal Pressure 248 F
+Design External Pressure 14.500 psig
+Design Temperature
+External Pressure 248 F
+Effective Diameter Multiplier 1.2
+Material Name SA-240 304L
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Input Echo : Step: 1   1:43p  Apr 4,2014 
-Density 7.4906 lb/ft^3 
-Element From Node 30 Detail Type Nozzle Detail ID L2 Dist. from "FROM" Node / Offset dist 24.000 in Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.767 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 30 Detail Type Nozzle Detail ID L1 Dist. from "FROM" Node / Offset dist 24.000 in Nozzle Diameter 2.0 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  180.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 14.767 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-Element From Node 30 Detail Type Nozzle Detail ID T Dist. from "FROM" Node / Offset dist 0.10000 in Nozzle Diameter 1.5 in. Nozzle Schedule 80S Nozzle Class 300         Layout Angle  0.0 Blind Flange (Y/N)  N Weight of Nozzle ( Used if > 0 ) 11.682 lbf Grade of Attached Flange GR 2.1 Nozzle Matl SA-312 TP304L 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
+Efficiency
+Longitudinal Seam 0.85 Efficiency
+Circumferential Seam 0.85
+Elliptical Head Factor 2.0 
 
-
-XY Coordinate Calculations :  Step:  2   1:43p  Apr 4,2014 
+## xy coordinate calcs? probnably better to use pandas here and import,export csv or tsv
 XY Coordinate Calculations
- | | | | | | From| To | X (Horiz.)| Y (Vert.) |DX (Horiz.)| DY (Vert.) | | |     ft |     ft |    ft |     ft | --------------------------------------------------------------
-left head|  0.082021 |  ... |  0.082021 |  ... |  
-shell|  12.4180 |  ... |  12.3360 |  ... |  
- right head|   12.5000 |  ... |  0.082021 |  ... |  
 
+From,To,X (Horiz.),Y (Vert.),DX (Horiz.),DY (Vert.)
+left head,0.082021,...,0.082021,...
+shell,12.4180,...,12.3360,...
+right head,12.5000,...,0.082021,...
 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Internal Pressure Calculations :   Step:  3   1:43p  Apr 4,2014 
 Element Thickness, Pressure, Diameter and Allowable Stress :
- | | Int. Press | Nominal | Total Corr| Element | Allowable | From| To | + Liq. Hd | Thickness | Allowance | Diameter | Stress(SE)| | | psig | in | in | in | psi | ---------------------------------------------------------------------------left head| 363.760 | 0.94488 | ... | 60.0000 | 14195.0 | shell| 363.760 | ... | ... | 60.0000 | 14195.0 |  right head|  363.760 | 0.94488 | ... | 60.0000 | 14195.0 | 
+
+ Int. Press,Nominal,Total Corr,Element,Allowable,From,To,+ Liq. Hd,Thickness,Allowance,Diameter,Stress(SE)
+ left head,363.760,0.94488,...,60.0000,14195.0
+ shell,363.760,...,...,60.0000,14195.0
+ right head,363.760,0.94488,...,60.0000,14195.0
 
 Element Required Thickness and MAWP :
- | | Design |  M.A.W.P. | M.A.P. | Minimum | Required | From| To | Pressure | Corroded | New & Cold | Thickness | Thickness | | | psig | psig | psig | in | in | ----------------------------------------------------------------------------
-left head|  363.000 |  389.366 |  390.126 |  0.82677 |  0.77075 |  
-shell|  363.000 |  402.091 |  402.851 |  0.86614 |  0.78078 |  
- right head|   363.000 |  389.366 |  390.126 |  0.82677 |  0.77075 |  
+
+Design,M.A.W.P.,M.A.P.,Minimum,Required,From,To,Pressure,Corroded,New & Cold
+left head,363.000,389.366,390.126,0.82677,0.77075
+shell,363.000,402.091,402.851,0.86614,0.78078
+right head,363.000,389.366,390.126,0.82677,0.77075
 Minimum  389.366 390.125  
 
 MAWP: 389.366 psig, limited by: right head. 
 
+
+
+
+
+
+
 Internal Pressure Calculation Results : 
+
 ASME Code, Section VIII, Division 1, 2013 
+
 Elliptical Head From 10 To 20 SA-240 304L at 248 F 
+
 left head 
+
 Material UNS Number:  S30403 
+
+
 Required Thickness due to Internal Pressure [tr]: 
+
 = (P*D*Kcor)/(2*S*E-0.2*P) Appendix 1-4(c) = (363.760*60.0000*1.000)/(2*16700.00*0.85-0.2*363.760) = 0.7708 + 0.0000 = 0.7708 in 
+
+
 Max. Allowable Working Pressure at given Thickness, corroded [MAWP]: 
+
 Less Operating Hydrostatic Head Pressure of 0.760 psig 
+
 = (2*S*E*t)/(Kcor*D+0.2*t) per Appendix 1-4 (c) = (2*16700.00*0.85*0.8268)/(1.000*60.0000+0.2*0.8268) = 390.126 - 0.760 = 389.366 psig 
+
+
 Maximum Allowable Pressure, New and Cold [MAPNC]: 
 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Internal Pressure Calculations :   Step:  3   1:43p  Apr 4,2014 
 = (2*S*E*t)/(K*D+0.2*t) per Appendix 1-4 (c) = (2*16700.00*0.85*0.8268)/(1.000*60.0000+0.2*0.8268) = 390.126 psig 
+
+
 Actual stress at given pressure and thickness, corroded [Sact]:
+
  = (P*(Kcor*D+0.2*t))/(2*E*t) = (363.760*(1.000*60.0000+0.2*0.8268))/(2*0.85*0.8268) = 15571.377 psi 
+
+
 Straight Flange Required Thickness:
+
  = (P*R)/(S*E-0.6*P) + c per UG-27 (c)(1) = (363.760*30.0000)/(16700.00*0.85-0.6*363.760)+0.000 = 0.781 in 
+
+
 Straight Flange Maximum Allowable Working Pressure: 
+
 Less Operating Hydrostatic Head Pressure of 0.760 psig 
+
 = (S*E*t)/(R+0.6*t) per UG-27 (c)(1) = (16700.00 * 0.85 * 0.9449 )/(30.0000 + 0.6 * 0.9449 ) = 438.794 - 0.760 = 438.034 psig 
+
+
 Percent Elongation per UHA-44 (75*tnom/Rf)*(1-Rf/Ro) 6.640 % Note: Please Check Requirements of Table UHA-44 for Elongation limits. 
+
 SA-240 304L, Min Metal Temp without impact per UHA-51: -320 F 
+
+
+
+
 Cylindrical Shell From 20 To 30 SA-240 304L at 248 F 
+
 shell 
+
 Material UNS Number:  S30403 
+
+
 Required Thickness due to Internal Pressure [tr]: 
+
 = (P*R)/(S*E-0.6*P) per UG-27 (c)(1) = (363.760*30.0000)/(16700.00*0.85-0.6*363.760) = 0.7808 + 0.0000 = 0.7808 in 
+
+
 Max. Allowable Working Pressure at given Thickness, corroded [MAWP]: 
 Less Operating Hydrostatic Head Pressure of 0.760 psig 
 = (S*E*t)/(R+0.6*t) per UG-27 (c)(1) = (16700.00*0.85*0.8661)/(30.0000+0.6*0.8661) = 402.851 - 0.760 = 402.091 psig 
+
+
 Maximum Allowable Pressure, New and Cold [MAPNC]: 
 = (S*E*t)/(R+0.6*t) per UG-27 (c)(1) = (16700.00*0.85*0.8661)/(30.0000+0.6*0.8661) = 402.851 psig 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Internal Pressure Calculations :   Step:  3   1:43p  Apr 4,2014 
 Actual stress at given pressure and thickness, corroded [Sact]:
+
  = (P*(R+0.6*t))/(E*t) = (363.760*(30.0000+0.6*0.8661))/(0.85*0.8661) = 15079.509 psi 
+
+
 Percent Elongation per UHA-44 (50*tnom/Rf)*(1-Rf/Ro) 1.423 % Note: Please Check Requirements of Table UHA-44 for Elongation limits. 
+
 SA-240 304L, Min Metal Temp without impact per UHA-51: -320 F 
+
 Elliptical Head From 30 To 40 SA-240 304L at 248 F 
+
 right head 
+
 Material UNS Number:  S30403 
+
+
 Required Thickness due to Internal Pressure [tr]: 
 = (P*D*Kcor)/(2*S*E-0.2*P) Appendix 1-4(c) = (363.760*60.0000*1.000)/(2*16700.00*0.85-0.2*363.760) = 0.7708 + 0.0000 = 0.7708 in 
+
+
 Max. Allowable Working Pressure at given Thickness, corroded [MAWP]: 
 Less Operating Hydrostatic Head Pressure of 0.760 psig 
 = (2*S*E*t)/(Kcor*D+0.2*t) per Appendix 1-4 (c) = (2*16700.00*0.85*0.8268)/(1.000*60.0000+0.2*0.8268) = 390.126 - 0.760 = 389.366 psig 
+
+
 Maximum Allowable Pressure, New and Cold [MAPNC]: 
 = (2*S*E*t)/(K*D+0.2*t) per Appendix 1-4 (c) = (2*16700.00*0.85*0.8268)/(1.000*60.0000+0.2*0.8268) = 390.126 psig 
+
+
 Actual stress at given pressure and thickness, corroded [Sact]:
  = (P*(Kcor*D+0.2*t))/(2*E*t) = (363.760*(1.000*60.0000+0.2*0.8268))/(2*0.85*0.8268) = 15571.377 psi 
+
+
 Straight Flange Required Thickness:
  = (P*R)/(S*E-0.6*P) + c per UG-27 (c)(1) = (363.760*30.0000)/(16700.00*0.85-0.6*363.760)+0.000 = 0.781 in 
+
+
 Straight Flange Maximum Allowable Working Pressure: 
+
 Less Operating Hydrostatic Head Pressure of 0.760 psig 
 = (S*E*t)/(R+0.6*t) per UG-27 (c)(1) 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Internal Pressure Calculations :   Step:  3   1:43p  Apr 4,2014 
 = (16700.00 * 0.85 * 0.9449 )/(30.0000 + 0.6 * 0.9449 ) 
 = 438.794 - 0.760 = 438.034 psig 
+
+
 Percent Elongation per UHA-44 (75*tnom/Rf)*(1-Rf/Ro) 6.640 % Note: Please Check Requirements of Table UHA-44 for Elongation limits. 
+
 SA-240 304L, Min Metal Temp without impact per UHA-51: -320 F 
+
+
+
 Hydrostatic Test Pressure Results:
+
  Pressure per UG99b = 1.3 * M.A.W.P. * Sa/S 506.175 psig Pressure per UG99b[34] = 1.3 * Design Pres * Sa/S 471.900 psig Pressure per UG99c = 1.3 * M.A.P. -Head(Hyd) 503.602 psig Pressure per UG100 = 1.1 * M.A.W.P. * Sa/S 428.302 psig Pressure per PED = 1.43 * MAWP 556.793 psig 
+
 UG-99(b), Test Pressure Calculation: 
+
 = Test Factor * MAWP * Stress Ratio 
+
 = 1.3 * 389.366 * 1.000 
+
 = 506.175 psig 
 
+
+
 Horizontal Test performed per: UG-99b 
+
 Please note that Nozzle, Shell, Head, Flange, etc MAWPs are all considered when determining the hydrotest pressure for those test types that are based on the MAWP of the vessel. 
 
+
+
+
+
 Stresses on Elements due to Test Pressure:
+
  From To Stress Allowable Ratio Pressure ----------------------------------------------------------------------
+
 left head  21760.4  22500.0  0.967  508.34  
+
 shell  21073.1  22500.0  0.937  508.34  
+
 right head  21760.4  22500.0  0.967  508.34  
 
 ----------------------------------------------------------------------
-Elements Suitable for Internal Pressure. 
-
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 External Pressure Calculations :   Step:  4   1:43p  Apr 4,2014 
+
+
 External Pressure Calculation Results : 
+
 ASME Code, Section VIII, Division 1, 2013 
+
+
 Elliptical Head From 10 to 20 Ext. Chart: HA-3 at 248 F 
+
 left head 
+
+
 Elastic Modulus from Chart: HA-3 at 248  F : 0.270E+08 psi 
+
+
 Results for Maximum Allowable External Pressure (MAEP):
+
  Tca OD D/t Factor A B 0.827 61.65 74.57 0.0018625 8147.17 EMAP = B/(K0*D/t) = 8147.1709/(0.9000 *74.5714 ) = 121.3925 psig 
+
+
 Results for Required Thickness (Tca):
+
  Tca OD D/t Factor A B 0.163 61.65 378.78 0.0003667 4943.46 EMAP = B/(K0*D/t) = 4943.4629/(0.9000 *378.7831 ) = 14.5010 psig 
+
+
 Check the requirements of UG-33(a)(1) using P = 1.67 * External Design pressure for this head. 
+
 Material UNS Number:  S30403 
+
+
 Required Thickness due to Internal Pressure [tr]: 
+
 = (P*D*Kcor)/(2*S*E-0.2*P) Appendix 1-4(c) = (24.215*60.0000*1.000)/(2*16700.00*1.00-0.2*24.215) = 0.0435 + 0.0000 = 0.0435 in 
+
+
 Max. Allowable Working Pressure at given Thickness, corroded [MAWP]: 
+
 = ((2*S*E*t)/(Kcor*D+0.2*t))/1.67 per Appendix 1-4 (c) = ((2*16700.00*1.00*0.8268)/(1.000*60.0000+0.2*0.8268))/1.67 = 274.833 psig 
+
+
 Maximum Allowable External Pressure [MAEP]: 
+
 = min( MAEP, MAWP ) = min( 121.39 , 274.8332 ) = 121.393 psig 
+
+
 Thickness requirements per UG-33(a)(1) do not govern the required thickness of this head. 
+
+
+
+
 Cylindrical Shell From 20 to 30 Ext. Chart: HA-3 at 248 F 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 External Pressure Calculations :   Step:  4   1:43p  Apr 4,2014 
 shell 
+
 Elastic Modulus from Chart: HA-3 at 248  F : 0.270E+08 psi 
+
+
 Results for Maximum Allowable External Pressure (MAEP):
+
  Tca OD SLEN D/t L/D Factor A B 0.866 61.73 160.00 71.27 2.5918 0.0008196 6863.67 EMAP = (4*B)/(3*(D/t)) = (4*6863.6660 )/(3*71.2727 ) = 128.4019 psig 
+
+
 Results for Required Thickness (Tca):
+
  Tca OD SLEN D/t L/D Factor A B 0.299 61.73 160.00 206.16 2.5918 0.0001663 2242.08 EMAP = (4*B)/(3*(D/t)) = (4*2242.0771 )/(3*206.1585 ) = 14.5007 psig 
+
+
 Results for Maximum Stiffened Length (Slen):
+
  Tca OD SLEN D/t L/D Factor A B 0.866 61.73 4002.22 71.27 50.0000 0.0002236 3014.83 EMAP = (4*B)/(3*(D/t)) = (4*3014.8267 )/(3*71.2727 ) = 56.3998 psig 
+
+
+
+
+
+
 Elliptical Head From 30 to 40 Ext. Chart: HA-3 at 248 F 
+
 right head 
+
 Elastic Modulus from Chart: HA-3 at 248  F : 0.270E+08 psi 
+
+
 Results for Maximum Allowable External Pressure (MAEP):
+
  Tca OD D/t Factor A B 0.827 61.65 74.57 0.0018625 8147.17 EMAP = B/(K0*D/t) = 8147.1709/(0.9000 *74.5714 ) = 121.3925 psig 
+
+
 Results for Required Thickness (Tca):
+
  Tca OD D/t Factor A B 0.163 61.65 378.78 0.0003667 4943.46 EMAP = B/(K0*D/t) = 4943.4629/(0.9000 *378.7831 ) = 14.5010 psig 
+
+
 Check the requirements of UG-33(a)(1) using P = 1.67 * External Design pressure for this head. 
+
 Material UNS Number:  S30403 
+
+
 Required Thickness due to Internal Pressure [tr]: 
+
 = (P*D*Kcor)/(2*S*E-0.2*P) Appendix 1-4(c) = (24.215*60.0000*1.000)/(2*16700.00*1.00-0.2*24.215) = 0.0435 + 0.0000 = 0.0435 in 
+
+
 Max. Allowable Working Pressure at given Thickness, corroded [MAWP]: 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 External Pressure Calculations :   Step:  4   1:43p  Apr 4,2014 
 = ((2*S*E*t)/(Kcor*D+0.2*t))/1.67 per Appendix 1-4 (c) = ((2*16700.00*1.00*0.8268)/(1.000*60.0000+0.2*0.8268))/1.67 = 274.833 psig 
+
+
 Maximum Allowable External Pressure [MAEP]: 
+
 = min( MAEP, MAWP ) = min( 121.39 , 274.8332 ) = 121.393 psig 
+
+
 Thickness requirements per UG-33(a)(1) do not govern the required thickness of this head. 
+
+
+
 External Pressure Calculations
- | | Section | Outside | Corroded | Factor | Factor | From| To | Length |  Diameter | Thickness | A | B | | | ft | in | in | | psi | ---------------------------------------------------------------------------
-10| 20|  No Calc |  61.6535 |  0.82677 |  0.0018625 |  8147.17 |  
+
+ | | Section | Outside | Corroded | Factor | Factor | From| To | Length |  Diameter | Thickness | A | B | | | ft | in | in | | psi | 
+ ---------------------------------------------------------------------------
+1
+0| 20|  No Calc |  61.6535 |  0.82677 |  0.0018625 |  8147.17 |  
+
 20| 30|  13.3333 |  61.7323 |  0.86614 | 0.00081961 |  6863.67 |  
+
 30| 40|  No Calc |  61.6535 |  0.82677 |  0.0018625 |  8147.17 |  
+
+
+
 External Pressure Calculations 
 
  | | External | External | External | External | From| To | Actual T. | Required T.|Des. Press. | M.A.W.P. | | | in | in | psig | psig | 
 ----------------------------------------------------------------10| 20| 0.82677 | 0.16277 | 14.5000 | 121.393 | 20| 30| 0.86614 | 0.29944 | 14.5000 | 128.402 | 30| 40| 0.82677 | 0.16277 | 14.5000 | 121.393 | Minimum 121.393 
 
+
+
 External Pressure Calculations
+
  | | Actual Len.| Allow. Len.| Ring Inertia | Ring Inertia | From| To | Bet. Stiff.| Bet. Stiff.| Required |  Available | | | ft | ft | in**4 | in**4 | 
 -------------------------------------------------------------------10| 20| No Calc | No Calc | No Calc | No Calc | 20| 30| 13.3333 | 333.518 | No Calc | No Calc | 30| 40| No Calc | No Calc | No Calc | No Calc | 
+
+
+
 Elements Suitable for External Pressure. 
 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
-
-
-Element and Detail Weights :  Step:  5   1:43p  Apr 4,2014 
 Element and Detail Weights
  | | Element | Element | Corroded | Corroded | Extra due | From| To | Metal Wgt. | ID Volume |Metal Wgt. | ID Volume | Misc % | | | lbf | in3 | lbf | in3 | lbf | ---------------------------------------------------------------------------
 10| 20|  1269.76 |  31057.2 |  1269.76 |  31057.2 |  380.928 |  
@@ -276,31 +539,46 @@ Element and Detail Weights
 
 Weight of Details
  | | Weight of | X Offset, | Y Offset, | From|Type| Detail | Dtl. Cent. |Dtl. Cent. | Description | | lbf | ft | ft | 
--------------------------------------------------10|Liqd| 424.924 | -0.41667 | 1.00000 | L 10|Insl| 48.0475 | -0.58399 | ... | Ins: 20 20|Sadl| 551.307 | 1.75000 | 2.98589 | L Sdl 20|Sadl| 551.307 | 10.7500 | 2.98589 | R Sdl 20|Liqd| 5536.31 | 6.16798 | 1.00000 | L 20|Insl| 256.963 | 6.16800 | ... | Ins: 20 20|Nozl| 117.974 | 0.75000 | 2.68750 | F1 20|Nozl| 27.3786 | 1.75000 | 2.59896 | Y 20|Nozl| 27.3786 | 2.75000 | 2.59896 | L4 20|Nozl| 27.3786 | 3.75000 | 2.59896 | P 20|Nozl| 27.3786 | 4.75000 | 2.59896 | V 20|Nozl| 63.2139 | 12.0000 | 2.64583 | A 20|Nozl| 321.857 | 8.50000 | 3.50000 | M 20|Nozl| 117.974 | 5.75000 | 2.68750 | R1 20|Nozl| 18.4678 | 4.00000 | 2.59896 | W1 20|Nozl| 35.5311 | 12.0000 | 2.64583 | B 30|Liqd| 424.924 | 0.49869 | 1.00000 | L 30|Insl| 48.0475 | 0.66601 | ... | Ins: 20 30|Nozl| 19.1968 | 0.83202 | ... | L2 30|Nozl| 19.1968 | 0.83202 | ... | L1 30|Nozl| 15.1865 | 1.33201 | ... | T 
+
+-------------------------------------------------10|Liqd| 424.924 | -0.41667 | 1.00000 | L 10|Insl| 48.0475 | -0.58399 | ... | Ins: 20 20|Sadl| 551.307 | 1.75000 | 2.
+98589 | L Sdl 20|Sadl| 551.307 | 10.7500 | 2.98589 | R Sdl 20|Liqd| 5536.31 | 6.16798 | 1.00000 | L 20|Insl| 256.963 | 6.16800 | ... | Ins: 20 20|Nozl| 117.974 | 0.75000 | 
+
+2.68750 | F1 20|Nozl| 27.3786 | 1.75000 | 2.59896 | Y 20|Nozl| 27.3786 | 2.75000 | 2.59896 | L4 20|Nozl| 27.3786 | 3.75000 | 2.59896 | P 20|Nozl| 27.3786 | 4.75000 | 2.
+
+59896 | V 20|Nozl| 63.2139 | 12.0000 | 2.64583 | A 20|Nozl| 321.857 | 8.50000 | 3.50000 | M 20|Nozl| 117.974 | 5.75000 | 2.68750 | R1 20|Nozl| 18.4678 | 4.00000 | 2.59896 | W1 20|Nozl| 35.5311 | 12.0000 | 2.64583 | B 30|Liqd| 424.924 | 0.49869 | 1.00000 | L 30|Insl| 48.0475 | 0.66601 | ... | Ins: 20 30|Nozl| 19.1968 | 0.83202 | ... | L2 30|Nozl| 19.1968 | 0.83202 | ... | L1 30|Nozl| 15.1865 | 1.33201 | ... | T 
 
 Total Weight of Each Detail Type
+
  Total Weight of Saddles 1102.6 Total Weight of Liquid 6386.2 Total Weight of Insulation 353.1 
+
 PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
 
 
 Element and Detail Weights :  Step:  5   1:43p  Apr 4,2014 
+
 Total Weight of Nozzles 838.1 ---------------------------------------------------------------Sum of the Detail Weights 8679.9 lbf 
+
 Weight Summation
+
  Fabricated Shop Test Shipping Erected Empty Operating ------------------------------------------------------------------------------12544.3 14485.0 12544.3 14485.0 12544.3 14838.1 1102.6 17357.3 1102.6 ... 1102.6 6386.2 
+
 838.1 ... 838.1 ... ... ... ... ... ... 353.1 ... ... ... ... ... ... 353.1 ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... 838.1 ... 
+
 ------------------------------------------------------------------------------14485.0 31842.3 14838.1 14838.1 14838.1 21224.3 lbf 
+
 Miscellaneous Weight Percent: 30.0 % 
+
 Note that the above value for the miscellaneous weight percent has been applied to the shells/heads/flange/tubesheets/tubes etc. in the weight calculations for metallic components. 
 Note: The shipping total has been modified because some items have been specified as being installed in the shop. 
 
 
 Weight Summary
+
  Fabricated Wt. -Bare Weight W/O Removable Internals 14485.0 lbf Shop Test Wt. -Fabricated Weight + Water ( Full ) 31842.3 lbf Shipping Wt. -Fab. Wt + Rem. Intls.+ Shipping App.  14838.1 lbf Erected Wt. -Fab. Wt + Rem. Intls.+ Insul. (etc) 14838.1 lbf Ope. Wt. no Liq - Fab. Wt + Intls. + Details + Wghts. 14838.1 lbf Operating Wt. -Empty Wt + Operating Liq. Uncorroded 21224.3 lbf Oper. Wt. + CA -Corr Wt. + Operating Liquid  21224.3 lbf Field Test Wt. -Empty Weight + Water (Full) 32195.4 lbf 
+
 Note: The Corroded Weight and thickness are used in the Horizontal       Vessel Analysis (Ope Case) and Earthquake Load Calculations. 
-Outside Surface Areas of Elements 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
 
-
+Outside Surface Areas of Elements
 Element and Detail Weights :  Step:  5   1:43p  Apr 4,2014 
 |  |  Surface  |  
 From| To |  Area  |  
@@ -308,17 +586,31 @@ From| To |  Area  |
 
 ----------------------------10| 20| 4343.41 | 20| 30| 28708.9 | 30| 40| 4343.41 | 
 -----------------------------------------------------Total 37395.699 in^2 [259.7 Square Feet ] 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Nozzle Flange MAWP : Step: 6   1:43p  Apr 4,2014 
+
+
+
 Nozzle Flange MAWP Results :
- Nozzle -----Flange Rating Description Operating Ambient Temperature Class Grade|Group 
-psig psig F ----------------------------------------------------------------------------F1 571.2 720.0 248 300 GR 2.1 Y 571.2 720.0 248 300 GR 2.1 L4 571.2 720.0 248 300 GR 2.1 P 571.2 720.0 248 300 GR 2.1 V 571.2 720.0 248 300 GR 2.1 A 571.2 720.0 248 300 GR 2.1 M 571.2 720.0 248 300 GR 2.1 R1 571.2 720.0 248 300 GR 2.1 W1 571.2 720.0 248 300 GR 2.1 B 571.2 720.0 248 300 GR 2.1 L2 571.2 720.0 248 300 GR 2.1 L1 571.2 720.0 248 300 GR 2.1 T 571.2 720.0 248 300 GR 2.1 ----------------------------------------------------------------------------Minimum Rating 571.200 720.000 psig (for Core Elements) 
+
+Nozzle -----Flange Rating Description Operating Ambient Temperature Class Grade|Group 
+psig psig F ----------------------------------------------------------------------------
+F1 571.2 720.0 248 300 GR 2.1
+Y 571.2 720.0 248 300 GR 2.1
+L4 571.2 720.0 248 300 GR 2.1
+P 571.2 720.0 248 300 GR 2.1
+V 571.2 720.0 248 300 GR 2.1
+A 571.2 720.0 248 300 GR 2.1
+M 571.2 720.0 248 300 GR 2.1
+R1 571.2 720.0 248 300 GR 2.1
+W1 571.2 720.0 248 300 GR 2.1
+B 571.2 720.0 248 300 GR 2.1
+L2 571.2 720.0 248 300 GR 2.1
+L1 571.2 720.0 248 300 GR 2.1
+T 571.2 720.0 248 300 GR 2.1 ----------------------------------------------------------------------------
+Minimum Rating 571.200 720.000 psig (for Core Elements) 
 Note: ANSI Ratings are per ANSI/ASME B16.5 2009 Edition 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Wind Load Calculation :    Step:  7   1:43p  Apr 4,2014 
 Input Values: 
 Wind Design Code Basic Wind Speed Surface Roughness Category  Importance Factor Type of Surface Base Elevation  [V]  ASCE 7-05 140.00 mile/hr C: Open Terrain 1.15 Moderately Smooth 0.0000 ft  
 Percent Wind for Hydrotest  0.0  
@@ -331,36 +623,64 @@ Type of Terrain ( Hill, Escarpment )  Flat
 Damping Factor (Beta) for Wind (Ope) 0.0100 
 Damping Factor (Beta) for Wind (Empty) 0.0000 
 Damping Factor (Beta) for Wind (Filled) 0.0000 
+
 Wind Analysis Results 
+
 Static Gust-Effect Factor, Operating Case [G]: 
 = min(0.85, 0.925((1 + 1.7 * gQ * Izbar * Q )/( 1 + 1.7 * gV * Izbar))) = min(0.85,0.925((1+1.7*3.400*0.228*0.958)/(1+1.7*3.400*0.228))) = min(0.85, 0.903 ) = 0.850 
-Natural Frequency of Vessel (Operating) 33.000 Hz Natural Frequency of Vessel (Empty) 33.000 Hz Natural Frequency of Vessel (Test) 33.000 Hz 
+
+Natural Frequency of Vessel (Operating) 33.000 Hz
+Natural Frequency of Vessel (Empty) 33.000 Hz
+Natural Frequency of Vessel (Test) 33.000 Hz 
+
 Note: Per Section 1609 of IBC 2003/06/09 these results are also applicable    for the determination of Wind Loads on structures (1609.1.1).
- User Entered Importance Factor is 1.150 Force Coefficient [Cf] 0.527 Structure Height to Diameter ratio 2.613 
+
+User Entered Importance Factor is 1.150 Force Coefficient [Cf] 0.527 Structure Height to Diameter ratio 2.613 
+
 This is classified as a rigid structure. Static analysis performed. 
 
+
 Sample Calculation for the First Element 
+
 The ASCE code performs all calculations in Imperial Units only. The wind pressure is therefore computed in these units. 
+
 Value of [Alpha] and [Zg]: 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Wind Load Calculation :    Step:  7   1:43p  Apr 4,2014 
+ 
 Exposure Category: C from Table C6-2 Alpha = 9.500 : Zg = 900.000 ft 
+
 Effective Height [z]: 
-= Centroid Height + Vessel Base Elevation = 3.583 + 0.000 = 3.583 ft 
+= Centroid Height + Vessel Base Elevation
+= 3.583 + 0.000 = 3.583 ft 
+
 Velocity Pressure coefficient evaluated at height z [Kz]: 
-Because z (3.583 ft.) < 15 ft. = 2.01 * ( 15 / Zg ) 2 / Alpha = 2.01 * ( 15/900.000 )2/9.500 = 0.849 
+Because z (3.583 ft.) < 15 ft.
+= 2.01 * ( 15 / Zg ) 2 / Alpha
+= 2.01 * ( 15/900.000 )2/9.500 = 0.849 
+
 Type of Hill: No Hill 
+
 Wind Directionality Factor [Kd]: 
 = 0.95 per [6-6 ASCE-7 98][6-4 ASCE-7 02/05] 
+
 As there is No Hill Present: [Kzt]: 
 K1 = 0, K2 = 0, K3 = 0 
+
 Topographical Factor [Kzt]: 
-= ( 1 + K1 * K2 * K3 )2 = ( 1 + 0.000 * 0.000 * 0.000 )2 = 1.0000 
+= ( 1 + K1 * K2 * K3 )2
+= ( 1 + 0.000 * 0.000 * 0.000 )2
+= 1.0000 
+
 Velocity Pressure evaluated at height z, Imperial Units [qz]: 
-= 0.00256 * Kz * Kzt * Kd * I * Vr(mph)2 = 0.00256 * 0.849 * 1.000 * 0.950 * 1.150 * 140.0002 = 46.5 psf 
+= 0.00256 * Kz * Kzt * Kd * I * Vr(mph)2
+= 0.00256 * 0.849 * 1.000 * 0.950 * 1.150 * 140.0002
+= 46.5 psf 
+
 Force on the first element [F]: 
-= qz * G * Cf * WindArea = 46.534 * 0.850 * 0.527 * 6.922 = 144.3 lbf 
+= qz * G * Cf * WindArea
+= 46.534 * 0.850 * 0.527 * 6.922
+= 144.3 lbf 
+
+
 Element Hgt (z)  K1 K2 K3 Kz Kzt qz ft psf ---------------------------------------------------------------------------
 left head  3.6  0.000  0.000  0.000  0.849  1.000  46.534  
 shell  3.6  0.000  0.000  0.000  0.849  1.000  46.534  
@@ -369,50 +689,56 @@ Wind Load Calculation
 
  | | Wind | Wind | Wind | Wind | Element | 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Wind Load Calculation :    Step:  7   1:43p  Apr 4,2014 
 From| To | Height | Diameter | Area | Pressure | Wind Load | | | ft | ft | in^2 | psf | lbf | ---------------------------------------------------------------------------
 10| 20|  3.58333 |  6.56535 |  996.766 |  46.5335 |  144.255 |  
 20| 30|  3.58333 |  6.57323 |  11676.5 |  46.5335 |  1689.86 |  
 30| 40|  3.58333 |  6.56535 |  996.766 |  46.5335 |  144.255 |  
 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
 
-
-Earthquake Load Calculation :  Step:  8   1:43p  Apr 4,2014 
 Input Values: 
+
 Earthquake Analysis per ASCE 7-05 
 Short-period site coefficient 9.4.1.2.4a  Fa: 1.000  
-   Long -period site coefficient 9.4.1.2.4b  Fv: 1.400  
+Long -period site coefficient 9.4.1.2.4b  Fv: 1.400  
 Maximum Mapped Acceleration Value for Short Periods  Ss: 0.112  
 Maximum Mapped Acceleration Value for 1 Sec. Period  S1: 0.052  
-
 Response Modification Factor R: 3.000 
 Importance Factor Ie: 1.250 
 Site Class D 
 
+
 Seismic Analysis Results: 
+
 Sms = Fa * Ss = 1.000 * 0.112 = 0.112 Sm1 = Fv * S1 = 1.400 * 0.052 = 0.073 Sds = 2/3 * Sms = 2/3 * 0.112 = 0.075 Sd1 = 2/3 * Sm1 = 2/3 * 0.073 = 0.049 
+
 Check Approximate Fundamental Period from 9.5.5.3.2-1 [Ta]: 
-= Ct * hnx where Ct = 0.020, x = 0.75 and hn = Structural Height (ft.) = 0.020 * ( 5.00000.75) = 0.067 seconds 
+= Ct * hnx
+where Ct = 0.020, x = 0.75 and hn = Structural Height (ft.)
+= 0.020 * ( 5.00000.75)
+= 0.067 seconds 
+
 The Coefficient Cu from Table 9.5.5.3.1 is : 1.700 
 Fundamental Period (1/Frequency) [T]: 
 = ( 1/Natural Frequency ) = ( 1/33.000 ) 
 = 0.030 
+
 Check the Value of T which is the smaller of Cu*Ta and T: 
-= Minimum Value of (1.700 * 0.067 , 0.030 ) per 9.5.5.3 = 0.030 
+= Minimum Value of (1.700 * 0.067 , 0.030 ) per 9.5.5.3
+= 0.030 
+
 As the time period is < 0.06 second, use section 9.14.5.2. 
 Compute the Base Shear per equation 9.14.5.2, [V]: 
 = 0.3 * Sds * W * I 
 = 0.3 * 0.075 * 21224 * 1.25 
 = 594.279 lbf 
+
 Note: Loads multiplied by the Scalar multiplier value of 0.7000
- Final Base Shear, V = 416.00 lbf 
+
+Final Base Shear, V = 416.00 lbf 
+
+
 Earthquake Load Calculation 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 
 
-
-Earthquake Load Calculation :  Step:  8   1:43p  Apr 4,2014 
 | | Earthquake | Earthquake |  Element | From| To | Height |  Weight | Ope  Load | | | ft | lbf | lbf | -------------------------------------------------
 10| 20|  2.50000 |  4244.85 |  83.1991 |  
 20|Sadl|  2.50000 |  4244.85 |  83.1991 |  
@@ -420,36 +746,46 @@ Sadl| 30|  2.50000 |  4244.85 |  83.1991 |
 20| 30|  2.50000 |  4244.85 |  83.1991 |  
 30| 40|  2.50000 |  4244.85 |  83.1991 |  
 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Center of Gravity Calculation :    Step:  9   1:43p  Apr 4,2014 
-Shop/Field Installation Options : 
-Insulation is installed in the Shop. 
+
+
+Shop/Field Installation Options :
+
+Insulation is installed in the Shop.
+
 Note : The CG is computed from the first Element From Node
- Center of Gravity of Saddles 6.332 ft Center of Gravity of Liquid 6.250 ft Center of Gravity of Insulation 6.250 ft Center of Gravity of Nozzles 7.039 ft 
-Center of Gravity of Bare Shell New and Cold 6.250 ft Center of Gravity of Bare Shell Corroded 6.250 ft 
-Vessel CG in the Operating Condition 6.285 ft Vessel CG in the Fabricated (Shop/Empty) Condition 6.301 ft Vessel CG in the Test Condition 6.273 ft 
+
+Center of Gravity of Saddles 6.332 ft
+Center of Gravity of Liquid 6.250 ft Center of Gravity of Insulation 6.250 ft
+Center of Gravity of Nozzles 7.039 ft 
+Center of Gravity of Bare Shell New and Cold 6.250 ft
+Center of Gravity of Bare Shell Corroded 6.250 ft 
+Vessel CG in the Operating Condition 6.285 ft
+Vessel CG in the Fabricated (Shop/Empty) Condition 6.301 ft
+Vessel CG in the Test Condition 6.273 ft 
+
 Rigging Analysis Results: 
 Total Effective Length of Vessel for this analysis  12.50 ft  
 Total vessel weight (No Liquid)   Twt  14838.10 lbf  
- Impact weight multiplication factor  Imp  2.00  
- Design lifting weight,  DWT = Imp * Twt  29676.21 lbf  
+Impact weight multiplication factor  Imp  2.00  
+Design lifting weight,  DWT = Imp * Twt  29676.21 lbf  
 Elevation of the Tailing Lug (bottom)   1.56 ft  
 Elevation of the Lifting Lug (top   )  10.78 ft  
 Design Reaction force at the tailing lug   14411.12 lbf  
 Design Reaction force at the lifting lug   15265.09 lbf  
 CG Distance from Tailing Lug   4.74 ft  
 CG Distance from the Nearer Lifting Lug   4.48 ft  
+
+
 Critical Values: 
 
- Max Stress Elevation Allowables 
-psi ft psi -----------|-----------|---------------|------------------------Bending | 52.93 | 2.55 | 11365.84 (UG-23) Shear | -71.38 | 0.02 | 11690.00 (0.7*S) -----------|-----------|---------------|------------------------
+ Max Stress,Elevation,Allowables 
+Bending,52.93,2.55,11365.84 (UG-23)
+Shear,-71.38,0.02,11690.00 (0.7*S)
+
 Forces and Moments at selected elevations (not all analysis points shown):
- Distance Bending Moment Bending Stress Shear Force Shear Stress ft ft-lbf psi lbf psi 
 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Center of Gravity Calculation :    Step:  9   1:43p  Apr 4,2014 
-------------------------------------------------------------------------------
+Distance Bending Moment Bending Stress Shear Force Shear Stress
 0.00  0.0  0.0  -10683.4  -67.6  
 2.55  10962.2  52.9  3775.6  22.8  
 7.48  -1810.6  -8.7  -3346.7  -20.2  
@@ -462,88 +798,180 @@ Maximum Unity Check is 0.0047 at elevation 2.5492 ft - Must be <=1 Note: The rig
 PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
+
+
+
 Lifting Lug Calculations: Lug(s) on Left End of Vessel 
+
 Input Values:
- Lifting Lug Material   SA-283 C  Lifting Lug Yield Stress Yield 30007.25 psi 
-Total Height of Lifting Lug  w 11.0236 in Thickness of Lifting Lug  t 0.7874 in Diameter of Hole in Lifting Lug  dh 1.4961 in Radius of Semi-Circular Arc of Lifting Lug  r 3.1496 in Height of Lug from bottom to Center of Hole h 5.5118 in Offset from Vessel OD to Center of Hole off 5.5118 in Lug Fillet Weld Size tw 0.6299 in Length of weld along side of Lifting Lug  wl 11.0236 in Length of Weld along Bottom of Lifting Lug  wb 0.7874 in Thickness of Collar (if any)  tc 0.0000 in Diameter of Collar (if any)  dc 0.0000 in Impact Factor Impfac 2.00  Sling Angle from Horizontal 90.0000 deg Number of Lugs in Group 2 
+Lifting Lug Material   SA-283 C
+Lifting Lug Yield Stress Yield 30007.25 psi 
+Total Height of Lifting Lug  w 11.0236 in
+Thickness of Lifting Lug  t 0.7874 in
+Diameter of Hole in Lifting Lug  dh 1.4961 in
+Radius of Semi-Circular Arc of Lifting Lug  r 3.1496 in
+Height of Lug from bottom to Center of Hole h 5.5118 in
+Offset from Vessel OD to Center of Hole off 5.5118 in
+Lug Fillet Weld Size tw 0.6299 in
+Length of weld along side of Lifting Lug  wl 11.0236 in
+Length of Weld along Bottom of Lifting Lug  wb 0.7874 in
+Thickness of Collar (if any)  tc 0.0000 in
+Diameter of Collar (if any)  dc 0.0000 in
+Impact Factor Impfac 2.00
+Sling Angle from Horizontal 90.0000 deg
+Number of Lugs in Group 2 
 Lifting Lug Orientation to Vessel: Perpendicular 
 Lift Orientation : Horizontal Lift 
-PV Elite does not compute weak axis bending forces on the lugs. It is assumed that a spreader bar is used. 
+
 
 Computed Results:
- Force Along Vessel Axis Fax 0.00 lbf Force Normal to Vessel Fn 7205.56 lbf Force Tangential to Vessel Ft 0.00 lbf 
+Force Along Vessel Axis Fax 0.00 lbf
+Force Normal to Vessel Fn 7205.56 lbf
+Force Tangential to Vessel Ft 0.00 lbf 
 Converting the weld leg dimension (tw) to the weld throat dimension. 
 
 Weld Group Inertia Calculations:
- Weld Group Inertia about the Circumferential Axis Ilc 122.507 in**4 Weld Group Centroid distance in the Long. Direction Yll 5.957 in Dist. of Weld Group Centroid from Lug bottom Yll_b 5.512 in Weld Group Inertia about the Longitudinal Axis Ill 0.486 in**4 Weld Group Centroid Distance in the Circ. Direction Ylc 0.394 in 
+Weld Group Inertia about the Circumferential Axis Ilc 122.507 in**4
+Weld Group Centroid distance in the Long. Direction Yll 5.957 in
+Dist. of Weld Group Centroid from Lug bottom Yll_b 5.512 in
+Weld Group Inertia about the Longitudinal Axis Ill 0.486 in**4
+Weld Group Centroid Distance in the Circ. Direction Ylc 0.394 in 
 Note: The Impact Factor is applied to the Forces acting on the Lug. 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
+
 Primary Shear Stress in the Welds due to Shear Loads [Ssll]:
- = sqrt( Fax2 + Ft2 + Fn2 )/(( 2 * (wl + wb) ) * tw ) = sqrt(02+02+72052)/((2*(11.0+0.8))*0.4454) = 684.93 psi 
+= sqrt( Fax2 + Ft2 + Fn2 )/(( 2 * (wl + wb) ) * tw )
+= sqrt(02+02+72052)/((2*(11.0+0.8))*0.4454)
+= 684.93 psi 
+
 Shear Stress in the Welds due to Bending Loads [Sblf]: 
 = (Fn*(h-Yll_b)) *Yll/Ilc + (Fax*off *Yll/Ilc) + (Ft*off *Ylc/Ill) 
 = (7205 *(5.512 -5.512 )) * 5.957/122.507 + (0 *5.512 * 5.957/122.507 ) + (0 *5.512 * 0.394/0.486 ) 
 = 0.00 psi 
-Total Shear Stress for Combined Loads [St]: 
-= Ssll + Sblf = 684.927 + 0.000 = 684.93 psi 
-Allowable Shear Stress for Combined Loads [Sta]: 
-= 0.4 * Yield * Occfac (AISC Shear Allowable) = 0.4 * 30007 * 1.00 = 12002.90 psi 
-Shear Stress in Lug above Hole [Shs]:
- = sqrt( Pl2 + Fax2 ) / Sha = sqrt( 72052 + 02 )/3.782 = 1905.22 psi 
-Allowable Shear Stress in Lug above Hole [Sas]: 
-= 0.4 * Yield * Occfac = 0.4 * 30007 * 1.00 = 12002.90 psi 
-Pin Hole Bearing Stress [Pbs]:
- = sqrt( Fax2 + Fn2 ) / ( t * dh ) = sqrt( 02 + 72052 )/( 0.787 * 1.496 ) = 6116.76 psi 
-Allowable Bearing Stress [Pba]: 
-= min( 0.75 * Yield * Occfac, 0.9 * Yield ) AISC Bearing All. = min( 0.75 * 30007 * 1.00 , 27006.5 ) = 22505.44 psi 
-Bending Stress at the Base of the Lug [Fbs]: 
-= Ft * off/(w * t2/6) + Fax * off/(w2 * t/6) = 0 * 5.512/(11.024 * 0.7872/6) + 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
-0 * 5.512/(11.0242 * 0.787/6) = 0.00 psi 
+Total Shear Stress for Combined Loads [St]: 
+= Ssll + Sblf = 684.927 + 0.000
+= 684.93 psi 
+
+Allowable Shear Stress for Combined Loads [Sta]: 
+= 0.4 * Yield * Occfac (AISC Shear Allowable)
+= 0.4 * 30007 * 1.00
+= 12002.90 psi 
+
+Shear Stress in Lug above Hole [Shs]:
+= sqrt( Pl2 + Fax2 ) / Sha
+= sqrt( 72052 + 02 )/3.782
+= 1905.22 psi 
+
+Allowable Shear Stress in Lug above Hole [Sas]: 
+= 0.4 * Yield * Occfac
+= 0.4 * 30007 * 1.00
+= 12002.90 psi 
+
+Pin Hole Bearing Stress [Pbs]:
+= sqrt( Fax2 + Fn2 ) / ( t * dh )
+= sqrt( 02 + 72052 )/( 0.787 * 1.496 )
+= 6116.76 psi 
+
+Allowable Bearing Stress [Pba]: 
+= min( 0.75 * Yield * Occfac, 0.9 * Yield ) AISC Bearing All.
+= min( 0.75 * 30007 * 1.00 , 27006.5 )
+= 22505.44 psi 
+
+Bending Stress at the Base of the Lug [Fbs]: 
+= Ft * off/(w * t2/6) + Fax * off/(w2 * t/6)
+= 0 * 5.512/(11.024 * 0.7872/6) + 0 * 5.512/(11.0242 * 0.787/6)
+= 0.00 psi 
+
 Tensile Stress at the Base of the Lug [Fa]: 
-= Fn / (w * t) = 0/(11.024 * 0.787 ) = 830.13 psi 
+= Fn / (w * t)
+= 0/(11.024 * 0.787 )
+= 830.13 psi 
+
 Total Combined Stress at the Base of the Lug: 
-= Fbs + Fa = 0.0 + 830.1 = 830.13 psi 
+= Fbs + Fa
+= 0.0 + 830.1
+= 830.13 psi 
+
 Lug Allowable Stress for Bending and Tension: 
-= min( 0.66 * Yield * Occfac, 0.75 * Yield ) = min( 0.66 * 30007 * 1.00 , 22505.4 ) = 19804.79 psi 
+= min( 0.66 * Yield * Occfac, 0.75 * Yield )
+= min( 0.66 * 30007 * 1.00 , 22505.4 )
+= 19804.79 psi 
+
 Required Shackle Pin Diameter [Spd]: 
-= sqrt[(2 * sqrt(Fn2 + Fax2)/( Pi * Sta))] = sqrt[2 * sqrt(72052 + 02)/( Pi * 12002 )] = 0.6182 in 
+= sqrt[(2 * sqrt(Fn2 + Fax2)/( Pi * Sta))]
+= sqrt[2 * sqrt(72052 + 02)/( Pi * 12002 )]
+= 0.6182 in 
+
+
 WRC 107/537 Stress Analysis for the Lifting Lug to Shell Junction in the new and Cold Condition (no corrosion applied). 
 Note: Since Beta1/Beta2 >= 0.25, C22 (C22p) is adjusted per table 6 in paragraph 4.3 of WRC Bulletin 107. 
+
 Input Echo, WRC107/537 Item  1,  Description: Lift Lug
- Diameter Basis for Vessel Vbasis ID Cylindrical or Spherical Vessel Cylsph Cylindrical Internal Corrosion Allowance Cas 0.0000 in Vessel Diameter Dv 60.000 in Vessel Thickness Tv 0.866 in 
- Design Temperature  100.00 癋
- Attachment Type Type Rectangular Parameter C11 C11 0.79 in Parameter C22 C22 3.15 in 
+Diameter Basis for Vessel Vbasis ID
+Cylindrical or Spherical Vessel Cylsph Cylindrical
+Internal Corrosion Allowance Cas 0.0000 in
+Vessel Diameter Dv 60.000 in
+Vessel Thickness Tv 0.866 in 
+Design Temperature  100.00 
+Attachment Type Type Rectangular Parameter C11 C11 0.79 in Parameter C22 C22 3.15 in 
 Thickness of Reinforcing Pad Tpad 0.630 in Pad Parameter C11P C11p 7.874 in Pad Parameter C22P C22p 13.780 in 
 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
-Design Internal Pressure Dp 0.000 psig Include Pressure Thrust No 
+ 
+Design Internal Pressure Dp 0.000 psig
+Include Pressure Thrust No 
 External Forces and Moments in WRC 107/537 Convention:
- Radial Load (SUS) P -7205.6 lbf Longitudinal Shear (SUS) Vl 0.0 lbf Circumferential Shear (SUS) Vc 0.0 lbf Circumferential Moment (SUS) Mc 0.0 ft-lbf Longitudinal Moment (SUS) Ml 0.0 ft-lbf Torsional Moment (SUS) Mt 0.0 ft-lbf 
-Use Interactive Control No WRC107 Version Version March 1979 
-Include Pressure Stress Indices per Div. 2 No Compute Pressure Stress per WRC-368 No 
+Radial Load (SUS) P -7205.6 lbf
+Longitudinal Shear (SUS) Vl 0.0 lbf
+Circumferential Shear (SUS) Vc 0.0 lbf
+Circumferential Moment (SUS) Mc 0.0 ft-lbf
+Longitudinal Moment (SUS) Ml 0.0 ft-lbf
+Torsional Moment (SUS) Mt 0.0 ft-lbf 
+Use Interactive Control No
+WRC107 Version Version March 1979 
+Include Pressure Stress Indices per Div. 2 No
+Compute Pressure Stress per WRC-368 No 
+
 WRC 107 Stress Calculation for SUStained loads:
- Radial Load P -7205.6 lbf Circumferential Shear VC 0.0 lbf Longitudinal Shear VL 0.0 lbf Circumferential Moment MC 0.0 ft-lbf Longitudinal Moment ML 0.0 ft-lbf Torsional Moment MT 0.0 ft-lbf 
+Radial Load P -7205.6 lbf
+Circumferential Shear VC 0.0 lbf
+Longitudinal Shear VL 0.0 lbf
+Circumferential Moment MC 0.0 ft-lbf
+Longitudinal Moment ML 0.0 ft-lbf
+Torsional Moment MT 0.0 ft-lbf 
 Dimensionless Parameters used : Gamma = 20.55 
+
+
 Dimensionless Loads for Cylindrical Shells at Attachment Junction:
- -------------------------------------------------------------------Curves read for 1979 Beta Figure Value Location ------------------------------------------------------------------- N(PHI) / ( P/Rm )  0.038 4C 4.078 (A,B)  N(PHI) / ( P/Rm )  0.038 3C 4.109 (C,D)  M(PHI) / ( P ) 0.023 2C1 0.255 (A,B)  M(PHI) / ( P ) 0.023 1C 0.289 (C,D)  N(PHI) / ( MC/(Rm**2 * Beta) )  0.020 3A 0.038 (A,B,C,D)  M(PHI) / ( MC/(Rm  * Beta) )  0.026 1A ! 0.105 (A,B,C,D)  N(PHI) / ( ML/(Rm**2 * Beta) )  0.032 3B 0.391 (A,B,C,D)  M(PHI) / ( ML/(Rm  * Beta) )  0.029 1B ! 0.065 (A,B,C,D) 
-N(x) / ( P/Rm )  0.031 3C 4.159 (A,B) N(x) / ( P/Rm )  0.031 4C 4.104 (C,D) M(x) / ( P ) 0.032 1C1 0.270 (A,B) M(x) / ( P ) 0.032 2C 0.221 (C,D) 
+Curves read for 1979 Beta Figure Value Location
+N(PHI) / ( P/Rm )  0.038 4C 4.078 (A,B) 
+N(PHI) / ( P/Rm )  0.038 3C 4.109 (C,D) 
+M(PHI) / ( P ) 0.023 2C1 0.255 (A,B) 
+M(PHI) / ( P ) 0.023 1C 0.289 (C,D) 
+
+N(PHI) / ( MC/(Rm**2 * Beta) )  0.020 3A 0.038 (A,B,C,D)  M(PHI) / ( MC/(Rm  * Beta) )  0.026 1A ! 0.105 (A,B,C,D)  N(PHI) / ( ML/(Rm**2 * Beta) )  0.032 3B 0.391 (A,B,C,D)  M(PHI) / ( ML/(Rm  * Beta) )  0.029 1B ! 0.065 (A,B,C,D) 
+
+N(x) / ( P/Rm )  0.031 3C 4.159 (A,B)
+N(x) / ( P/Rm )  0.031 4C 4.104 (C,D)
+M(x) / ( P ) 0.032 1C1 0.270 (A,B)
+M(x) / ( P ) 0.032 2C 0.221 (C,D) 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
-N(x) / ( MC/(Rm**2 * Beta) )  0.020 4A 0.055 (A,B,C,D) M(x) / ( MC/(Rm  * Beta) )  0.037 2A 0.064 (A,B,C,D) N(x) / ( ML/(Rm**2 * Beta) )  0.032 4B 0.086 (A,B,C,D) M(x) / ( ML/(Rm  * Beta) )  0.040 2B 0.105 (A,B,C,D) 
+N(x) / ( MC/(Rm**2 * Beta) )  0.020 4A 0.055 (A,B,C,D)
+M(x) / ( MC/(Rm  * Beta) )  0.037 2A 0.064 (A,B,C,D)
+N(x) / ( ML/(Rm**2 * Beta) )  0.032 4B 0.086 (A,B,C,D)
+M(x) / ( ML/(Rm  * Beta) )  0.040 2B 0.105 (A,B,C,D) 
+
 Note - The ! mark next to the figure name denotes curve value exceeded. 
+
+
+
 Stress Concentration Factors Kn = 1.00, Kb = 1.00 
+
 Stresses in the Vessel at the Attachment Junction
- ------------------------------------------------------------------------
-| Stress Values at 
-Type of | (psi ) ---------------|--------------------------------------------------------Stress Load| Au Al Bu Bl Cu Cl Du Dl ---------------|--------------------------------------------------------
+tress Values at 
+Type of Stress Load,Au Al Bu Bl Cu Cl Du Dl
 Circ. Memb. P  |  638  638  638  638  643  643  643  643  
 Circ. Bend. P  |  4916  -4916  4916  -4916  5577  -5577  5577  -5577  
 Circ. Memb. MC |  0  0  0  0  0  0  0  0  
@@ -552,25 +980,51 @@ Circ. Memb. ML |  0  0  0  0  0  0  0  0
 Circ. Bend. ML |  0  0  0  0  0  0  0  0  
 | 
  Tot. Circ. Str.|  5555  -4278  5555  -4278  6220  -4933  6220  -4933  
+Long. Memb. P | 651 651 651 651 642 642 642 642
+Long. Bend. P | 5218 -5218 5218 -5218 4267 -4267 4267 -4267
+Long. Memb. MC | 0 0 0 0 0 0 0 0
+Long. Bend. MC | 0 0 0 0 0 0 0 0
+Long. Memb. ML | 0 0 0 0 0 0 0 0
+Long. Bend. ML | 0 0 0 0 0 0 0 0 
 
-------------------------------------------------------------------------Long. Memb. P | 651 651 651 651 642 642 642 642 Long. Bend. P | 5218 -5218 5218 -5218 4267 -4267 4267 -4267 Long. Memb. MC | 0 0 0 0 0 0 0 0 Long. Bend. MC | 0 0 0 0 0 0 0 0 Long. Memb. ML | 0 0 0 0 0 0 0 0 Long. Bend. ML | 0 0 0 0 0 0 0 0 
-| Tot. Long. Str.|  5870 -4567 5870 -4567 4909 -3624 4909 -3624 ------------------------------------------------------------------------
-Shear VC | 0 0 0 0 0 0 0 0 Shear VL | 0 0 0 0 0 0 0 0 Shear MT | 0 0 0 0 0 0 0 0 
-| Tot. Shear| 0 0 0 0 0 0 0 0 
-------------------------------------------------------------------------Str. Int. | 5870 4567 5870 4567 6220 4933 6220 4933 ------------------------------------------------------------------------
+Tot. Long. Str.|  5870 -4567 5870 -4567 4909 -3624 4909 -3624
+Shear VC | 0 0 0 0 0 0 0 0
+Shear VL | 0 0 0 0 0 0 0 0
+Shear MT | 0 0 0 0 0 0 0 0 
+
+Tot. Shear| 0 0 0 0 0 0 0 0 
+
+Str. Int. | 5870 4567 5870 4567 6220 4933 6220 4933
+
 Dimensionless Parameters used : Gamma = 35.14 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
 Dimensionless Loads for Cylindrical Shells at Pad edge:
- -------------------------------------------------------------------Curves read for 1979 Beta Figure Value Location ------------------------------------------------------------------- N(PHI) / ( P/Rm )  0.218 4C 4.791 (A,B)  N(PHI) / ( P/Rm )  0.218 3C 2.984 (C,D)  M(PHI) / ( P ) 0.159 2C1 0.054 (A,B)  M(PHI) / ( P ) 0.159 1C 0.085 (C,D)  N(PHI) / ( MC/(Rm**2 * Beta) )  0.156 3A 1.345 (A,B,C,D)  M(PHI) / ( MC/(Rm  * Beta) )  0.170 1A 0.085 (A,B,C,D)  N(PHI) / ( ML/(Rm**2 * Beta) )  0.188 3B 3.690 (A,B,C,D)  M(PHI) / ( ML/(Rm  * Beta) )  0.179 1B 0.031 (A,B,C,D) 
-N(x) / ( P/Rm )  0.191 3C 3.450 (A,B) N(x) / ( P/Rm )  0.191 4C 5.089 (C,D) M(x) / ( P ) 0.196 1C1 0.072 (A,B) M(x) / ( P ) 0.196 2C ! 0.039 (C,D) N(x) / ( MC/(Rm**2 * Beta) )  0.156 4A 2.205 (A,B,C,D) M(x) / ( MC/(Rm  * Beta) )  0.205 2A 0.038 (A,B,C,D) N(x) / ( ML/(Rm**2 * Beta) )  0.188 4B 1.421 (A,B,C,D) M(x) / ( ML/(Rm  * Beta) )  0.206 2B 0.040 (A,B,C,D) 
+Curves read for 1979 Beta Figure Value Location
+N(PHI) / ( P/Rm )  0.218 4C 4.791 (A,B) 
+N(PHI) / ( P/Rm )  0.218 3C 2.984 (C,D)  
+M(PHI) / ( P ) 0.159 2C1 0.054 (A,B)  
+M(PHI) / ( P ) 0.159 1C 0.085 (C,D)  
+N(PHI) / ( MC/(Rm**2 * Beta) )  0.156 3A 1.345 (A,B,C,D)  
+M(PHI) / ( MC/(Rm  * Beta) )  0.170 1A 0.085 (A,B,C,D)  
+N(PHI) / ( ML/(Rm**2 * Beta) )  0.188 3B 3.690 (A,B,C,D)  
+M(PHI) / ( ML/(Rm  * Beta) )  0.179 1B 0.031 (A,B,C,D) 
+N(x) / ( P/Rm )  0.191 3C 3.450 (A,B) 
+N(x) / ( P/Rm )  0.191 4C 5.089 (C,D) 
+M(x) / ( P ) 0.196 1C1 0.072 (A,B)
+ M(x) / ( P ) 0.196 2C ! 0.039 (C,D) 
+ N(x) / ( MC/(Rm**2 * Beta) )  0.156 4A 2.205 (A,B,C,D) 
+ M(x) / ( MC/(Rm  * Beta) )  0.205 2A 0.038 (A,B,C,D) 
+ N(x) / ( ML/(Rm**2 * Beta) )  0.188 4B 1.421 (A,B,C,D) 
+ M(x) / ( ML/(Rm  * Beta) )  0.206 2B 0.040 (A,B,C,D) 
+
 Note - The ! mark next to the figure name denotes curve value exceeded. 
+
 Stress Concentration Factors Kn = 1.00, Kb = 1.00 
 
 Stresses in the Vessel at the Edge of Reinforcing Pad
- ------------------------------------------------------------------------| Stress Values at 
-Type of | (psi ) ---------------|--------------------------------------------------------Stress Load| Au Al Bu Bl Cu Cl Du Dl ---------------|--------------------------------------------------------
+Stress Values at 
+Type of Stress Load Au Al Bu Bl Cu Cl Du Dl
 Circ. Memb. P  |  1309  1309  1309  1309  815  815  815  815  
 Circ. Bend. P  |  3112  -3112  3112  -3112  4913  -4913  4913  -4913  
 Circ. Memb. MC |  0  0  0  0  0  0  0  0  
@@ -578,124 +1032,249 @@ Circ. Bend. MC |  0  0  0  0  0  0  0  0
 Circ. Memb. ML |  0  0  0  0  0  0  0  0  
 Circ. Bend. ML |  0  0  0  0  0  0  0  0  
 | 
- Tot. Circ. Str.|  4422  -1802  4422  -1802  5728  -4097  5728  -4097  
+Tot. Circ. Str.|  4422  -1802  4422  -1802  5728  -4097  5728  -4097  
 
-------------------------------------------------------------------------Long. Memb. P | 943 943 943 943 1391 1391 1391 1391 Long. Bend. P | 4169 -4169 4169 -4169 2242 -2242 2242 -2242 
+Long. Memb. P | 943 943 943 943 1391 1391 1391 1391 
+Long. Bend. P | 4169 -4169 4169 -4169 2242 -2242 2242 -2242 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
-Long. Memb. MC | 0 0 0 0 0 0 0 0 Long. Bend. MC | 0 0 0 0 0 0 0 0 Long. Memb. ML | 0 0 0 0 0 0 0 0 Long. Bend. ML | 0 0 0 0 0 0 0 0 
-| Tot. Long. Str.|  5112 -3226 5112 -3226 3634 -851 3634 -851 ------------------------------------------------------------------------
-Shear VC | 0 0 0 0 0 0 0 0 Shear VL | 0 0 0 0 0 0 0 0 Shear MT | 0 0 0 0 0 0 0 0 
-| Tot. Shear| 0 0 0 0 0 0 0 0 
-------------------------------------------------------------------------Str. Int. | 5112 3226 5112 3226 5728 4097 5728 4097 ------------------------------------------------------------------------
+
+Long. Memb. MC | 0 0 0 0 0 0 0 0
+Long. Bend. MC | 0 0 0 0 0 0 0 0 Long. Memb. ML | 0 0 0 0 0 0 0 0
+Long. Bend. ML | 0 0 0 0 0 0 0 0 
+Tot. Long. Str.|  5112 -3226 5112 -3226 3634 -851 3634 -851 ------------------------------------------------------------------------
+Shear VC | 0 0 0 0 0 0 0 0
+Shear VL | 0 0 0 0 0 0 0 0
+Shear MT | 0 0 0 0 0 0 0 0 
+Tot. Shear| 0 0 0 0 0 0 0 0 
+
+Str. Int. | 5112 3226 5112 3226 5728 4097 5728 4097
+
+
 WRC 107/537 Stress Summations: 
 Vessel Stress Summation at Attachment Junction
- ------------------------------------------------------------------------Type of | Stress Values at Stress Int. | (psi ) ---------------|--------------------------------------------------------
-Location | Au Al Bu Bl Cu Cl Du Dl ---------------|--------------------------------------------------------Circ. Pm (SUS) |  0 0 0 0 0 0 0 0 Circ. Pl (SUS) |  638 638 638 638 643 643 643 643 Circ. Q (SUS) |  4916 -4916 4916 -4916 5577 -5577 5577 -5577 ------------------------------------------------------------------------Long. Pm (SUS) |  0 0 0 0 0 0 0 0 Long. Pl (SUS) |  651 651 651 651 642 642 642 642  Long. Q  (SUS) |  5218 -5218 5218 -5218 4267 -4267 4267 -4267 ------------------------------------------------------------------------Shear Pm (SUS) |  0 0 0 0 0 0 0 0 Shear Pl (SUS) |  0 0 0 0 0 0 0 0 Shear Q (SUS) |  0 0 0 0 0 0 0 0 ------------------------------------------------------------------------Pm (SUS) | 0 0 0 0 0 0 0 0 ------------------------------------------------------------------------Pm+Pl (SUS) | 651 651 651 651 643 643 643 643 ------------------------------------------------------------------------ Pm+Pl+Q (Total)|  5870 4567 5870 4567 6220 4933 6220 4933 ------------------------------------------------------------------------
-------------------------------------------------------------------------Type of | Max. S.I. S.I. Allowable | Result 
+Type of Stress Values at Stress Int.
+Location | Au Al Bu Bl Cu Cl Du Dl
+Circ. Pm (SUS) |  0 0 0 0 0 0 0 0 
+Circ. Pl (SUS) |  638 638 638 638 643 643 643 643 
+Circ. Q (SUS) |  4916 -4916 4916 -4916 5577 -5577 5577 -5577
+Long. Pm (SUS) |  0 0 0 0 0 0 0 0
+Long. Pl (SUS) |  651 651 651 651 642 642 642 642
+Long. Q  (SUS) |  5218 -5218 5218 -5218 4267 -4267 4267 -4267
+Shear Pm (SUS) |  0 0 0 0 0 0 0 0
+Shear Pl (SUS) |  0 0 0 0 0 0 0 0 
+Shear Q (SUS) |  0 0 0 0 0 0 0 0
+Pm (SUS) | 0 0 0 0 0 0 0 0 
+Pm+Pl (SUS) | 651 651 651 651 643 643 643 643 
+Pm+Pl+Q (Total)|  5870 4567 5870 4567 6220 4933 6220 4933 
+
+Type of | Max. S.I. S.I. Allowable | Result 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Left Side  Step:  10   1:43p  Apr 4,2014 
-Stress Int. | psi | ---------------|--------------------------------------------------------Pm (SUS) | 0 16700 | Passed Pm+Pl (SUS) | 651 25050 | Passed  Pm+Pl+Q (TOTAL)|  6220 50100 | Passed ------------------------------------------------------------------------
+Stress Int.
+Pm (SUS) | 0 16700 | Passed
+Pm+Pl (SUS) | 651 25050 | Passed
+Pm+Pl+Q (TOTAL)|  6220 50100 | Passed 
+
 WRC 107/537 Stress Summations: 
+
 Vessel Stress Summation at Reinforcing Pad Edge
- ------------------------------------------------------------------------Type of | Stress Values at Stress Int. | (psi ) ---------------|--------------------------------------------------------
-Location | Au Al Bu Bl Cu Cl Du Dl ---------------|--------------------------------------------------------Circ. Pm (SUS) |  0 0 0 0 0 0 0 0 Circ. Pl (SUS) |  1309 1309 1309 1309 815 815 815 815 Circ. Q (SUS) |  3112 -3112 3112 -3112 4913 -4913 4913 -4913 ------------------------------------------------------------------------Long. Pm (SUS) |  0 0 0 0 0 0 0 0 Long. Pl (SUS) |  943 943 943 943 1391 1391 1391 1391  Long. Q  (SUS) |  4169 -4169 4169 -4169 2242 -2242 2242 -2242 ------------------------------------------------------------------------
+Type of | Stress Values at Stress Int.
+Location | Au Al Bu Bl Cu Cl Du Dl
+Circ. Pm (SUS) |  0 0 0 0 0 0 0 0
+Circ. Pl (SUS) |  1309 1309 1309 1309 815 815 815 815
+Circ. Q (SUS) |  3112 -3112 3112 -3112 4913 -4913 4913 -4913
+Long. Pm (SUS) |  0 0 0 0 0 0 0 0
+Long. Pl (SUS) |  943 943 943 943 1391 1391 1391 1391
+Long. Q  (SUS) |  4169 -4169 4169 -4169 2242 -2242 2242 -2242 
 Shear Pm (SUS) |   0  0  0  0  0  0  0  0  
 Shear Pl (SUS) |   0  0  0  0  0  0  0  0  
 Shear Q (SUS) |   0  0  0  0  0  0  0  0  
+Pm (SUS) | 0 0 0 0 0 0 0 0 
+Pm+Pl (SUS) | 1309 1309 1309 1309 1391 1391 1391 1391 
+Pm+Pl+Q (Total)|  5112 3226 5112 3226 5728 4097 5728 4097 
 
-------------------------------------------------------------------------Pm (SUS) | 0 0 0 0 0 0 0 0 ------------------------------------------------------------------------Pm+Pl (SUS) | 1309 1309 1309 1309 1391 1391 1391 1391 ------------------------------------------------------------------------ Pm+Pl+Q (Total)|  5112 3226 5112 3226 5728 4097 5728 4097 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 Type of | Max. S.I. S.I. Allowable | Result 
-Stress Int. | psi | ---------------|--------------------------------------------------------Pm (SUS) | 0 16700 | Passed Pm+Pl (SUS) | 1391 25050 | Passed  Pm+Pl+Q (TOTAL)|  5728 50100 | Passed ------------------------------------------------------------------------
+Stress Int. | psi | ---------------|
+Pm (SUS) | 0 16700 | Passed
+Pm+Pl (SUS) | 1391 25050 | Passed
+Pm+Pl+Q (TOTAL)|  5728 50100 | Passed 
 
-PV Elite is a trademark of Intergraph CADWorx & Analysis Solutions, Inc. 2014 
 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
 Lifting Lug Calculations: Lug(s) on Right End of Vessel 
+
 Input Values:
- Lifting Lug Material   SA-283 C  Lifting Lug Yield Stress Yield 30007.25 psi 
-Total Height of Lifting Lug  w 11.0236 in Thickness of Lifting Lug  t 0.7874 in Diameter of Hole in Lifting Lug  dh 1.4961 in Radius of Semi-Circular Arc of Lifting Lug  r 3.1496 in Height of Lug from bottom to Center of Hole h 5.5118 in Offset from Vessel OD to Center of Hole off 5.5118 in Lug Fillet Weld Size tw 0.6299 in Length of weld along side of Lifting Lug  wl 11.0236 in Length of Weld along Bottom of Lifting Lug  wb 0.7874 in Thickness of Collar (if any)  tc 0.0000 in Diameter of Collar (if any)  dc 0.0000 in Impact Factor Impfac 2.00  Sling Angle from Horizontal 90.0000 deg Number of Lugs in Group 2 
+Lifting Lug Material   SA-283 C 
+Lifting Lug Yield Stress Yield 30007.25 psi 
+Total Height of Lifting Lug  w 11.0236 in
+Thickness of Lifting Lug  t 0.7874 in 
+Diameter of Hole in Lifting Lug  dh 1.4961 in
+Radius of Semi-Circular Arc of Lifting Lug  r 3.1496 in
+Height of Lug from bottom to Center of Hole h 5.5118 in
+Offset from Vessel OD to Center of Hole off 5.5118 in
+Lug Fillet Weld Size tw 0.6299 in 
+Length of weld along side of Lifting Lug  wl 11.0236 in
+Length of Weld along Bottom of Lifting Lug  wb 0.7874 in
+Thickness of Collar (if any)  tc 0.0000 in
+Diameter of Collar (if any)  dc 0.0000 in 
+Impact Factor Impfac 2.00 
+Sling Angle from Horizontal 90.0000 deg 
+Number of Lugs in Group 2 
 Lifting Lug Orientation to Vessel: Perpendicular 
 Lift Orientation : Horizontal Lift 
 PV Elite does not compute weak axis bending forces on the lugs. It is assumed that a spreader bar is used. 
 
 Computed Results:
- Force Along Vessel Axis Fax 0.00 lbf Force Normal to Vessel Fn 7632.55 lbf Force Tangential to Vessel Ft 0.00 lbf 
+Force Along Vessel Axis Fax 0.00 lbf
+Force Normal to Vessel Fn 7632.55 lbf
+Force Tangential to Vessel Ft 0.00 lbf 
+
 Converting the weld leg dimension (tw) to the weld throat dimension. 
 
+
 Weld Group Inertia Calculations:
- Weld Group Inertia about the Circumferential Axis Ilc 122.507 in**4 Weld Group Centroid distance in the Long. Direction Yll 5.957 in Dist. of Weld Group Centroid from Lug bottom Yll_b 5.512 in Weld Group Inertia about the Longitudinal Axis Ill 0.486 in**4 Weld Group Centroid Distance in the Circ. Direction Ylc 0.394 in 
+Weld Group Inertia about the Circumferential Axis Ilc 122.507 in**4
+Weld Group Centroid distance in the Long. Direction Yll 5.957 in
+Dist. of Weld Group Centroid from Lug bottom Yll_b 5.512 in
+Weld Group Inertia about the Longitudinal Axis Ill 0.486 in**4
+Weld Group Centroid Distance in the Circ. Direction Ylc 0.394 in
+
 Note: The Impact Factor is applied to the Forces acting on the Lug. 
 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
 Primary Shear Stress in the Welds due to Shear Loads [Ssll]:
- = sqrt( Fax2 + Ft2 + Fn2 )/(( 2 * (wl + wb) ) * tw ) = sqrt(02+02+76322)/((2*(11.0+0.8))*0.4454) = 725.51 psi 
+ = sqrt( Fax2 + Ft2 + Fn2 )/(( 2 * (wl + wb) ) * tw )
+ = sqrt(02+02+76322)/((2*(11.0+0.8))*0.4454)
+ = 725.51 psi 
+
 Shear Stress in the Welds due to Bending Loads [Sblf]: 
 = (Fn*(h-Yll_b)) *Yll/Ilc + (Fax*off *Yll/Ilc) + (Ft*off *Ylc/Ill) 
 = (7632 *(5.512 -5.512 )) * 5.957/122.507 + (0 *5.512 * 5.957/122.507 ) + (0 *5.512 * 0.394/0.486 ) 
 = 0.00 psi 
+
 Total Shear Stress for Combined Loads [St]: 
-= Ssll + Sblf = 725.515 + 0.000 = 725.51 psi 
+= Ssll + Sblf
+= 725.515 + 0.000
+= 725.51 psi 
+
 Allowable Shear Stress for Combined Loads [Sta]: 
-= 0.4 * Yield * Occfac (AISC Shear Allowable) = 0.4 * 30007 * 1.00 = 12002.90 psi 
+= 0.4 * Yield * Occfac (AISC Shear Allowable)
+= 0.4 * 30007 * 1.00
+= 12002.90 psi 
+
 Shear Stress in Lug above Hole [Shs]:
- = sqrt( Pl2 + Fax2 ) / Sha = sqrt( 76322 + 02 )/3.782 = 2018.12 psi 
+= sqrt( Pl2 + Fax2 ) / Sha 
+= sqrt( 76322 + 02 )/3.782
+= 2018.12 psi 
+
 Allowable Shear Stress in Lug above Hole [Sas]: 
-= 0.4 * Yield * Occfac = 0.4 * 30007 * 1.00 = 12002.90 psi 
+= 0.4 * Yield * Occfac
+= 0.4 * 30007 * 1.00
+= 12002.90 psi 
+
 Pin Hole Bearing Stress [Pbs]:
- = sqrt( Fax2 + Fn2 ) / ( t * dh ) = sqrt( 02 + 76322 )/( 0.787 * 1.496 ) = 6479.23 psi 
+= sqrt( Fax2 + Fn2 ) / ( t * dh )
+= sqrt( 02 + 76322 )/( 0.787 * 1.496 )
+= 6479.23 psi 
+
 Allowable Bearing Stress [Pba]: 
-= min( 0.75 * Yield * Occfac, 0.9 * Yield ) AISC Bearing All. = min( 0.75 * 30007 * 1.00 , 27006.5 ) = 22505.44 psi 
+= min( 0.75 * Yield * Occfac, 0.9 * Yield ) AISC Bearing All.
+= min( 0.75 * 30007 * 1.00 , 27006.5 )
+= 22505.44 psi 
+
 Bending Stress at the Base of the Lug [Fbs]: 
-= Ft * off/(w * t2/6) + Fax * off/(w2 * t/6) = 0 * 5.512/(11.024 * 0.7872/6) + 
+= Ft * off/(w * t2/6) + Fax * off/(w2 * t/6)
+= 0 * 5.512/(11.024 * 0.7872/6) + 0 * 5.512/(11.0242 * 0.787/6)
+= 0.00 psi 
 
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
-0 * 5.512/(11.0242 * 0.787/6) = 0.00 psi 
 Tensile Stress at the Base of the Lug [Fa]: 
-= Fn / (w * t) = 0/(11.024 * 0.787 ) = 879.32 psi 
+= Fn / (w * t)
+= 0/(11.024 * 0.787 )
+= 879.32 psi 
+
 Total Combined Stress at the Base of the Lug: 
-= Fbs + Fa = 0.0 + 879.3 = 879.32 psi 
+= Fbs + Fa
+= 0.0 + 879.3
+= 879.32 psi 
+
 Lug Allowable Stress for Bending and Tension: 
-= min( 0.66 * Yield * Occfac, 0.75 * Yield ) = min( 0.66 * 30007 * 1.00 , 22505.4 ) = 19804.79 psi 
+= min( 0.66 * Yield * Occfac, 0.75 * Yield )
+= min( 0.66 * 30007 * 1.00 , 22505.4 )
+= 19804.79 psi 
+
 Required Shackle Pin Diameter [Spd]: 
-= sqrt[(2 * sqrt(Fn2 + Fax2)/( Pi * Sta))] = sqrt[2 * sqrt(76322 + 02)/( Pi * 12002 )] = 0.6363 in 
+= sqrt[(2 * sqrt(Fn2 + Fax2)/( Pi * Sta))]
+= sqrt[2 * sqrt(76322 + 02)/( Pi * 12002 )]
+= 0.6363 in 
+
+
 WRC 107/537 Stress Analysis for the Lifting Lug to Shell Junction in the new and Cold Condition (no corrosion applied). 
+
 Note: Since Beta1/Beta2 >= 0.25, C22 (C22p) is adjusted per table 6 in paragraph 4.3 of WRC Bulletin 107. 
+
 Input Echo, WRC107/537 Item  1,  Description: Lift Lug
- Diameter Basis for Vessel Vbasis ID Cylindrical or Spherical Vessel Cylsph Cylindrical Internal Corrosion Allowance Cas 0.0000 in Vessel Diameter Dv 60.000 in Vessel Thickness Tv 0.866 in 
- Design Temperature  100.00 癋
- Attachment Type Type Rectangular Parameter C11 C11 0.79 in Parameter C22 C22 3.15 in 
-Thickness of Reinforcing Pad Tpad 0.630 in Pad Parameter C11P C11p 7.874 in Pad Parameter C22P C22p 13.780 in 
+Diameter Basis for Vessel Vbasis ID
+Cylindrical or Spherical Vessel Cylsph Cylindrical
+Internal Corrosion Allowance Cas 0.0000 in
+Vessel Diameter Dv 60.000 in
+Vessel Thickness Tv 0.866 in 
+Design Temperature  100.00 
+Attachment Type Type Rectangular Parameter C11 C11 0.79 in
+Parameter C22 C22 3.15 in 
+Thickness of Reinforcing Pad Tpad 0.630 in
+Pad Parameter C11P C11p 7.874 in
+Pad Parameter C22P C22p 13.780 in 
 
-
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
-Design Internal Pressure Dp 0.000 psig Include Pressure Thrust No 
+Design Internal Pressure Dp 0.000 psig
+Include Pressure Thrust No 
 External Forces and Moments in WRC 107/537 Convention:
- Radial Load (SUS) P -7632.5 lbf Longitudinal Shear (SUS) Vl 0.0 lbf Circumferential Shear (SUS) Vc 0.0 lbf Circumferential Moment (SUS) Mc 0.0 ft-lbf Longitudinal Moment (SUS) Ml 0.0 ft-lbf Torsional Moment (SUS) Mt 0.0 ft-lbf 
-Use Interactive Control No WRC107 Version Version March 1979 
+Radial Load (SUS) P -7632.5 lbf
+Longitudinal Shear (SUS) Vl 0.0 lbf
+Circumferential Shear (SUS) Vc 0.0 lbf
+Circumferential Moment (SUS) Mc 0.0 ft-lbf
+Longitudinal Moment (SUS) Ml 0.0 ft-lbf
+Torsional Moment (SUS) Mt 0.0 ft-lbf 
+Use Interactive Control No
+
+
+WRC107 Version Version March 1979 
 Include Pressure Stress Indices per Div. 2 No Compute Pressure Stress per WRC-368 No 
+
+
 WRC 107 Stress Calculation for SUStained loads:
- Radial Load P -7632.5 lbf Circumferential Shear VC 0.0 lbf Longitudinal Shear VL 0.0 lbf Circumferential Moment MC 0.0 ft-lbf Longitudinal Moment ML 0.0 ft-lbf Torsional Moment MT 0.0 ft-lbf 
+Radial Load P -7632.5 lb
+Circumferential Shear VC 0.0 lbf
+Longitudinal Shear VL 0.0 lbf
+Circumferential Moment MC 0.0 ft-lbf
+Longitudinal Moment ML 0.0 ft-lbf
+Torsional Moment MT 0.0 ft-lbf 
 Dimensionless Parameters used : Gamma = 20.55 
 Dimensionless Loads for Cylindrical Shells at Attachment Junction:
- -------------------------------------------------------------------Curves read for 1979 Beta Figure Value Location ------------------------------------------------------------------- N(PHI) / ( P/Rm )  0.038 4C 4.078 (A,B)  N(PHI) / ( P/Rm )  0.038 3C 4.109 (C,D)  M(PHI) / ( P ) 0.023 2C1 0.255 (A,B)  M(PHI) / ( P ) 0.023 1C 0.289 (C,D)  N(PHI) / ( MC/(Rm**2 * Beta) )  0.020 3A 0.038 (A,B,C,D)  M(PHI) / ( MC/(Rm  * Beta) )  0.026 1A ! 0.105 (A,B,C,D)  N(PHI) / ( ML/(Rm**2 * Beta) )  0.032 3B 0.391 (A,B,C,D)  M(PHI) / ( ML/(Rm  * Beta) )  0.029 1B ! 0.065 (A,B,C,D) 
-N(x) / ( P/Rm )  0.031 3C 4.159 (A,B) N(x) / ( P/Rm )  0.031 4C 4.104 (C,D) M(x) / ( P ) 0.032 1C1 0.270 (A,B) M(x) / ( P ) 0.032 2C 0.221 (C,D) 
+Curves read for 1979 Beta Figure Value Location 
+N(PHI) / ( P/Rm )  0.038 4C 4.078 (A,B)  
+N(PHI) / ( P/Rm )  0.038 3C 4.109 (C,D)  
+M(PHI) / ( P ) 0.023 2C1 0.255 (A,B)  
+M(PHI) / ( P ) 0.023 1C 0.289 (C,D)  
+N(PHI) / ( MC/(Rm**2 * Beta) )  0.020 3A 0.038 (A,B,C,D)  
+M(PHI) / ( MC/(Rm  * Beta) )  0.026 1A ! 0.105 (A,B,C,D)  
+N(PHI) / ( ML/(Rm**2 * Beta) )  0.032 3B 0.391 (A,B,C,D) 
+ M(PHI) / ( ML/(Rm  * Beta) )  0.029 1B ! 0.065 (A,B,C,D) 
+N(x) / ( P/Rm )  0.031 3C 4.159 (A,B) 
+N(x) / ( P/Rm )  0.031 4C 4.104 (C,D) 
+M(x) / ( P ) 0.032 1C1 0.270 (A,B)
+ M(x) / ( P ) 0.032 2C 0.221 (C,D) 
+N(x) / ( MC/(Rm**2 * Beta) )  0.020 4A 0.055 (A,B,C,D) 
+M(x) / ( MC/(Rm  * Beta) )  0.037 2A 0.064 (A,B,C,D) 
+N(x) / ( ML/(Rm**2 * Beta) )  0.032 4B 0.086 (A,B,C,D) 
+M(x) / ( ML/(Rm  * Beta) )  0.040 2B 0.105 (A,B,C,D) 
 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
-N(x) / ( MC/(Rm**2 * Beta) )  0.020 4A 0.055 (A,B,C,D) M(x) / ( MC/(Rm  * Beta) )  0.037 2A 0.064 (A,B,C,D) N(x) / ( ML/(Rm**2 * Beta) )  0.032 4B 0.086 (A,B,C,D) M(x) / ( ML/(Rm  * Beta) )  0.040 2B 0.105 (A,B,C,D) 
 Note - The ! mark next to the figure name denotes curve value exceeded. 
+
 Stress Concentration Factors Kn = 1.00, Kb = 1.00 
+
 Stresses in the Vessel at the Attachment Junction
- ------------------------------------------------------------------------
-| Stress Values at 
-Type of | (psi ) ---------------|--------------------------------------------------------Stress Load| Au Al Bu Bl Cu Cl Du Dl ---------------|--------------------------------------------------------
+Stress Values at 
+Type of Stress Load, Au Al Bu Bl Cu Cl Du Dl
 Circ. Memb. P  |  676  676  676  676  681  681  681  681  
 Circ. Bend. P  |  5208  -5208  5208  -5208  5907  -5907  5907  -5907  
 Circ. Memb. MC |  0  0  0  0  0  0  0  0  
@@ -705,15 +1284,20 @@ Circ. Bend. ML |  0  0  0  0  0  0  0  0
 | 
  Tot. Circ. Str.|  5884  -4531  5884  -4531  6589  -5225  6589  -5225  
 
-------------------------------------------------------------------------Long. Memb. P | 690 690 690 690 680 680 680 680 Long. Bend. P | 5528 -5528 5528 -5528 4519 -4519 4519 -4519 Long. Memb. MC | 0 0 0 0 0 0 0 0 Long. Bend. MC | 0 0 0 0 0 0 0 0 Long. Memb. ML | 0 0 0 0 0 0 0 0 Long. Bend. ML | 0 0 0 0 0 0 0 0 
+Long. Memb. P | 690 690 690 690 680 680 680 680
+ Long. Bend. P | 5528 -5528 5528 -5528 4519 -4519 4519 -4519
+  Long. Memb. MC | 0 0 0 0 0 0 0 0
+  Long. Bend. MC | 0 0 0 0 0 0 0 0
+   Long. Memb. ML | 0 0 0 0 0 0 0 0 
+   Long. Bend. ML | 0 0 0 0 0 0 0 0 
 | Tot. Long. Str.|  6218 -4838 6218 -4838 5200 -3838 5200 -3838 ------------------------------------------------------------------------
-Shear VC | 0 0 0 0 0 0 0 0 Shear VL | 0 0 0 0 0 0 0 0 Shear MT | 0 0 0 0 0 0 0 0 
+Shear VC | 0 0 0 0 0 0 0 0 
+Shear VL | 0 0 0 0 0 0 0 0 
+Shear MT | 0 0 0 0 0 0 0 0 
 | Tot. Shear| 0 0 0 0 0 0 0 0 
-------------------------------------------------------------------------Str. Int. | 6218 4838 6218 4838 6589 5225 6589 5225 ------------------------------------------------------------------------
+Str. Int. | 6218 4838 6218 4838 6589 5225 6589 5225 ------------------------------------------------------------------------
 Dimensionless Parameters used : Gamma = 35.14 
 
-
-PV Elite 2014 Licensee: KUNSHAN BEXCELLE SPECIAL EQUIPMENT CO.FileName : D4470 Lifting Lug Calcs : Right Side  Step:  11   1:43p  Apr 4,2014 
 Dimensionless Loads for Cylindrical Shells at Pad edge:
  -------------------------------------------------------------------Curves read for 1979 Beta Figure Value Location ------------------------------------------------------------------- N(PHI) / ( P/Rm )  0.218 4C 4.791 (A,B)  N(PHI) / ( P/Rm )  0.218 3C 2.984 (C,D)  M(PHI) / ( P ) 0.159 2C1 0.054 (A,B)  M(PHI) / ( P ) 0.159 1C 0.085 (C,D)  N(PHI) / ( MC/(Rm**2 * Beta) )  0.156 3A 1.345 (A,B,C,D)  M(PHI) / ( MC/(Rm  * Beta) )  0.170 1A 0.085 (A,B,C,D)  N(PHI) / ( ML/(Rm**2 * Beta) )  0.188 3B 3.690 (A,B,C,D)  M(PHI) / ( ML/(Rm  * Beta) )  0.179 1B 0.031 (A,B,C,D) 
 N(x) / ( P/Rm )  0.191 3C 3.450 (A,B) N(x) / ( P/Rm )  0.191 4C 5.089 (C,D) M(x) / ( P ) 0.196 1C1 0.072 (A,B) M(x) / ( P ) 0.196 2C ! 0.039 (C,D) N(x) / ( MC/(Rm**2 * Beta) )  0.156 4A 2.205 (A,B,C,D) M(x) / ( MC/(Rm  * Beta) )  0.205 2A 0.038 (A,B,C,D) N(x) / ( ML/(Rm**2 * Beta) )  0.188 4B 1.421 (A,B,C,D) M(x) / ( ML/(Rm  * Beta) )  0.206 2B 0.040 (A,B,C,D) 
